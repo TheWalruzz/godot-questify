@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk1bp8bnsuxht"]
+
+[ext_resource type="Script" path="res://addons/questify/scripts/quest_graph_editor.gd" id="1_5373m"]
+[ext_resource type="Script" path="res://addons/questify/scripts/quest_editor_view.gd" id="1_dsglo"]
+
+[sub_resource type="Image" id="Image_or8mq"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_ao23q"]
+image = SubResource("Image_or8mq")
+
+[node name="QuestEditorView" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_dsglo")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Toolbar" type="HBoxContainer" parent="Content/MarginContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="NewButton" type="Button" parent="Content/MarginContainer/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = SubResource("ImageTexture_ao23q")
+flat = true
+
+[node name="OpenButton" type="Button" parent="Content/MarginContainer/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = SubResource("ImageTexture_ao23q")
+flat = true
+
+[node name="SaveButton" type="Button" parent="Content/MarginContainer/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = SubResource("ImageTexture_ao23q")
+flat = true
+
+[node name="VSeparator" type="VSeparator" parent="Content/MarginContainer/Toolbar"]
+layout_mode = 2
+
+[node name="AddNodeButton" type="Button" parent="Content/MarginContainer/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = SubResource("ImageTexture_ao23q")
+flat = true
+
+[node name="Spacer" type="Control" parent="Content/MarginContainer/Toolbar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator2" type="VSeparator" parent="Content/MarginContainer/Toolbar"]
+layout_mode = 2
+
+[node name="VersionLabel" type="Label" parent="Content/MarginContainer/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "v0.0.1"
+
+[node name="HSeparator" type="HSeparator" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="QuestGraphEditor" type="GraphEdit" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+right_disconnects = true
+script = ExtResource("1_5373m")
+
+[node name="SaveFileDialog" type="FileDialog" parent="."]
+title = "Save a Quest"
+initial_position = 4
+size = Vector2i(400, 400)
+filters = PackedStringArray("*.tres ; Quest files")
+use_native_dialog = true
+
+[node name="LoadFileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 4
+size = Vector2i(400, 400)
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.tres ; Quest files")
+
+[node name="AddNodePopupMenu" type="PopupMenu" parent="."]
+title = "Add Node"
+hide_on_state_item_selection = true
+item_count = 8
+item_0/text = "Start Node"
+item_0/id = 0
+item_1/text = "End Node"
+item_1/id = 1
+item_2/text = "Objective Node"
+item_2/id = 2
+item_3/text = "Any Previous Node"
+item_3/id = 3
+item_4/text = "Exclusive Branch Connector Node"
+item_4/id = 4
+item_5/text = "Condition Node"
+item_5/id = 5
+item_6/text = "Any Condition Node"
+item_6/id = 6
+item_7/text = "Not Condition Node"
+item_7/id = 7
+
+[connection signal="pressed" from="Content/MarginContainer/Toolbar/NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="Content/MarginContainer/Toolbar/OpenButton" to="." method="_on_open_button_pressed"]
+[connection signal="pressed" from="Content/MarginContainer/Toolbar/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Content/MarginContainer/Toolbar/AddNodeButton" to="." method="_on_add_node_button_pressed"]
+[connection signal="connection_request" from="Content/QuestGraphEditor" to="Content/QuestGraphEditor" method="_on_connection_request"]
+[connection signal="copy_nodes_request" from="Content/QuestGraphEditor" to="Content/QuestGraphEditor" method="_on_copy_nodes_request"]
+[connection signal="delete_nodes_request" from="Content/QuestGraphEditor" to="Content/QuestGraphEditor" method="_on_delete_nodes_request"]
+[connection signal="disconnection_request" from="Content/QuestGraphEditor" to="Content/QuestGraphEditor" method="_on_disconnection_request"]
+[connection signal="node_deselected" from="Content/QuestGraphEditor" to="Content/QuestGraphEditor" method="_on_node_deselected"]
+[connection signal="node_selected" from="Content/QuestGraphEditor" to="Content/QuestGraphEditor" method="_on_node_selected"]
+[connection signal="paste_nodes_request" from="Content/QuestGraphEditor" to="Content/QuestGraphEditor" method="_on_paste_nodes_request"]
+[connection signal="popup_request" from="Content/QuestGraphEditor" to="." method="_on_popup_request"]
+[connection signal="file_selected" from="SaveFileDialog" to="." method="_on_save_file_dialog_file_selected"]
+[connection signal="file_selected" from="LoadFileDialog" to="." method="_on_load_file_dialog_file_selected"]
+[connection signal="index_pressed" from="AddNodePopupMenu" to="." method="_on_add_node_index_pressed"]

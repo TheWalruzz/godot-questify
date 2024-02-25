@@ -1,0 +1,26 @@
+config_version=5
+
+[application]
+
+config/name="Questify"
+config/description="A graph-based quest editor and manager for Godot 4."
+run/main_scene="res://example/example_scene.tscn"
+config/features=PackedStringArray("4.2")
+config/icon="res://logo.png"
+config/tags=PackedStringArray("library")
+
+[autoload]
+
+Questify="*res://addons/questify/quest_manager.gd"
+
+[debug]
+
+gdscript/warnings/exclude_addons=false
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/questify/plugin.cfg")
+
+[quest_manager]
+
+update_interval=0.5

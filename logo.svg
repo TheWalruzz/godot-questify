@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="72.523567mm"
+   height="72.523567mm"
+   viewBox="0 0 72.523567 72.523567"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.73851712"
+     inkscape:cx="86.660144"
+     inkscape:cy="226.12881"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="299.24832"
+       y="356.11902"
+       width="209.88004"
+       height="140.82274"
+       id="rect844" />
+  </defs>
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-66.201428,-88.771993)">
+    <rect
+       style="fill:#a351c8;stroke:#ffffff;stroke-width:2.11666667;stroke-linecap:square;stroke-miterlimit:0.3;stroke-dasharray:none;fill-opacity:1"
+       id="rect234"
+       width="70.936066"
+       height="70.936066"
+       x="66.995178"
+       y="89.565742"
+       ry="6.42134"
+       inkscape:export-filename="logo.png"
+       inkscape:export-xdpi="81.012711"
+       inkscape:export-ydpi="81.012711" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.32994076,0,0,0.32994076,-11.27225,-29.945364)"
+       id="text842"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:96px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Heavy';white-space:pre;shape-inside:url(#rect844);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6;stroke-linecap:square;stroke-miterlimit:0.3;stroke-dasharray:none"><tspan
+         x="299.24805"
+         y="443.46716"
+         id="tspan1320">Qu</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdms61xlen14p"]
+
+[ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_any_previous_node.gd" id="1_10ry7"]
+
+[node name="QuestAnyPreviousNode" type="GraphNode"]
+offset_right = 207.0
+offset_bottom = 78.0
+title = "Any Previous"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_10ry7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="InputLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Input"
+
+[node name="OutputLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Output"
+
+[connection signal="dragged" from="." to="." method="_on_dragged"]

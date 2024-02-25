@@ -1,0 +1,145 @@
+[gd_resource type="Resource" script_class="QuestResource" load_steps=26 format=3 uid="uid://cbmkop7quwgvn"]
+
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_start.gd" id="1_b3q5r"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_edge.gd" id="2_72pp1"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_objective.gd" id="3_aarra"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_end.gd" id="3_iaucn"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_resource.gd" id="4_4gs13"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_any_previous.gd" id="5_8vmba"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_condition.gd" id="5_xh1xg"]
+
+[sub_resource type="Resource" id="Resource_4j7tm"]
+script = ExtResource("1_b3q5r")
+name = "First Quest"
+description = "This is your first quest. Good luck!"
+id = "tvxd77rjNf"
+optional = false
+graph_editor_position = Vector2(-160, 80)
+
+[sub_resource type="Resource" id="Resource_jy8sq"]
+script = ExtResource("3_aarra")
+description = "Press the button!"
+id = "9QWGIohUh9"
+optional = false
+graph_editor_position = Vector2(580, 120)
+
+[sub_resource type="Resource" id="Resource_krsk0"]
+script = ExtResource("2_72pp1")
+from = SubResource("Resource_4j7tm")
+to = SubResource("Resource_jy8sq")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_x18us"]
+script = ExtResource("5_xh1xg")
+type = "variable"
+key = "first_button_pressed"
+value_type = 0
+bool_value = false
+string_value = ""
+int_value = 0
+id = "Uth20FqPig"
+optional = false
+graph_editor_position = Vector2(180, 500)
+
+[sub_resource type="Resource" id="Resource_41i1k"]
+script = ExtResource("2_72pp1")
+from = SubResource("Resource_x18us")
+to = SubResource("Resource_jy8sq")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_uabdx"]
+script = ExtResource("3_aarra")
+description = "Press the left button."
+id = "toScPB4Ef3"
+optional = false
+graph_editor_position = Vector2(1120, -440)
+
+[sub_resource type="Resource" id="Resource_ad63m"]
+script = ExtResource("2_72pp1")
+from = SubResource("Resource_jy8sq")
+to = SubResource("Resource_uabdx")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_7eu6v"]
+script = ExtResource("3_aarra")
+description = "Press the right button."
+id = "5xlDc6m2uI"
+optional = false
+graph_editor_position = Vector2(1040, 840)
+
+[sub_resource type="Resource" id="Resource_jnqqo"]
+script = ExtResource("2_72pp1")
+from = SubResource("Resource_jy8sq")
+to = SubResource("Resource_7eu6v")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_aoicv"]
+script = ExtResource("5_8vmba")
+id = "wgN2UKWKLs"
+optional = false
+graph_editor_position = Vector2(1820, 340)
+
+[sub_resource type="Resource" id="Resource_44kt7"]
+script = ExtResource("2_72pp1")
+from = SubResource("Resource_uabdx")
+to = SubResource("Resource_aoicv")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_esujj"]
+script = ExtResource("2_72pp1")
+from = SubResource("Resource_7eu6v")
+to = SubResource("Resource_aoicv")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_ecoc1"]
+script = ExtResource("3_iaucn")
+id = "xwO4thUnpd"
+optional = false
+graph_editor_position = Vector2(2120, 340)
+
+[sub_resource type="Resource" id="Resource_k2lew"]
+script = ExtResource("2_72pp1")
+from = SubResource("Resource_aoicv")
+to = SubResource("Resource_ecoc1")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_sc65e"]
+script = ExtResource("5_xh1xg")
+type = "variable"
+key = "second_button_pressed"
+value_type = 1
+bool_value = false
+string_value = "left"
+int_value = 0
+id = "J8RmApRF98"
+optional = false
+graph_editor_position = Vector2(660, -500)
+
+[sub_resource type="Resource" id="Resource_d6p6e"]
+script = ExtResource("2_72pp1")
+from = SubResource("Resource_sc65e")
+to = SubResource("Resource_uabdx")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_hltwk"]
+script = ExtResource("5_xh1xg")
+type = "variable"
+key = "second_button_pressed"
+value_type = 1
+bool_value = false
+string_value = "right"
+int_value = 0
+id = "ARcEhhXzfH"
+optional = false
+graph_editor_position = Vector2(640, 940)
+
+[sub_resource type="Resource" id="Resource_fw88i"]
+script = ExtResource("2_72pp1")
+from = SubResource("Resource_hltwk")
+to = SubResource("Resource_7eu6v")
+edge_type = 1
+
+[resource]
+script = ExtResource("4_4gs13")
+nodes = Array[Resource("res://addons/questify/scripts/model/quest_node.gd")]([SubResource("Resource_x18us"), SubResource("Resource_4j7tm"), SubResource("Resource_hltwk"), SubResource("Resource_ecoc1"), SubResource("Resource_aoicv"), SubResource("Resource_uabdx"), SubResource("Resource_7eu6v"), SubResource("Resource_jy8sq"), SubResource("Resource_sc65e")])
+edges = Array[ExtResource("2_72pp1")]([SubResource("Resource_krsk0"), SubResource("Resource_41i1k"), SubResource("Resource_ad63m"), SubResource("Resource_jnqqo"), SubResource("Resource_44kt7"), SubResource("Resource_esujj"), SubResource("Resource_k2lew"), SubResource("Resource_d6p6e"), SubResource("Resource_fw88i")])
