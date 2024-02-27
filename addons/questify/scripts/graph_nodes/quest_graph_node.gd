@@ -35,7 +35,7 @@ func _get_model_properties(_node: QuestNode) -> void:
 
 func _on_dragged(from: Vector2, to: Vector2) -> void:
 	var undo_redo := (Engine.get_meta("QuestifyPlugin") as EditorPlugin).get_undo_redo()
-	undo_redo.create_action("Move quest node")
+	undo_redo.create_action("Move Quest Node")
 	undo_redo.add_do_property(self, "position_offset", to)
 	undo_redo.add_undo_property(self, "position_offset", from)
 	undo_redo.commit_action()

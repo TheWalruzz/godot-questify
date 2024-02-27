@@ -130,15 +130,18 @@ func _on_disconnection_request(from_node: StringName, from_port: int, to_node: S
 
 func _on_delete_nodes_request(nodes: Array[StringName]) -> void:
 	var connections := get_connection_list()
+	var connections_to_remove: Array[Dictionary] = []
+	var nodes_to_remove: Array[QuestGraphNode] = []
 	for node in nodes:
-		var connections_to_remove := connections.filter(
+		connections_to_remove.append_array(connections.filter(
 			func(connection): return connection.from_node == node or connection.to_node == node
-		)
-		for connection in connections_to_remove:
-			disconnect_node(connection.from_node, connection.from_port, connection.to_node, connection.to_port)
-		var child := get_node(NodePath(node)) as QuestGraphNode
-		child.selected = false
-		remove_child(child)
+		))
+		nodes_to_remove.append(get_node(NodePath(node)))
+	var undo_redo := (Engine.get_meta("QuestifyPlugin") as EditorPlugin).get_undo_redo()
+	undo_redo.create_action("Delete Quest Nodes")
+	undo_redo.add_do_method(self, "_delete_nodes", nodes_to_remove, connections_to_remove)
+	undo_redo.add_undo_method(self, "_undo_delete_nodes", nodes_to_remove, connections_to_remove)
+	undo_redo.commit_action()
 
 
 func _on_copy_nodes_request() -> void:
@@ -175,4 +178,20 @@ func _on_node_selected(node: Node) -> void:
 
 func _on_node_deselected(node: Node) -> void:
 	if selected_nodes.has(node):
-		selected_nodes.erase(node)
+		selected_nodes.erase(node)	
+
+
+func _delete_nodes(nodes: Array[QuestGraphNode], connections: Array[Dictionary]) -> void:
+	for connection in connections:
+		disconnect_node(connection.from_node, connection.from_port, connection.to_node, connection.to_port)
+	for node in nodes:
+		node.selected = false
+		remove_child(node)
+	
+	
+func _undo_delete_nodes(nodes: Array[QuestGraphNode], connections: Array[Dictionary]) -> void:
+	for node in nodes:
+		node.selected = true
+		add_child(node)
+	for connection in connections:
+		connect_node(connection.from_node, connection.from_port, connection.to_node, connection.to_port)

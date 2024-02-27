@@ -1,13 +1,21 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
 
 config/name="Questify"
 config/description="A graph-based quest editor and manager for Godot 4."
+config/tags=PackedStringArray("library")
 run/main_scene="res://example/example_scene.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://logo.png"
-config/tags=PackedStringArray("library")
 
 [autoload]
 
@@ -24,3 +32,7 @@ enabled=PackedStringArray("res://addons/questify/plugin.cfg")
 [quest_manager]
 
 update_interval=0.5
+
+[questify]
+
+general/update_interval=0.5
