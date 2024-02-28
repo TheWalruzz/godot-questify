@@ -21,5 +21,3 @@ script = ExtResource("1_tuynp")
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Input"
-
-[connection signal="dragged" from="." to="." method="_on_dragged"]

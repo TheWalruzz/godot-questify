@@ -94,6 +94,5 @@ layout_mode = 2
 placeholder_text = "Description"
 wrap_mode = 1
 
-[connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="toggled" from="OptionalCheckbox" to="." method="_on_optional_checkbox_toggled"]
 [connection signal="text_changed" from="DescriptionContainer/DescriptionTextEdit" to="." method="_on_description_text_changed"]

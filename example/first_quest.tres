@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_any_previous.gd" id="5_8vmba"]
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_condition.gd" id="5_xh1xg"]
 
-[sub_resource type="Resource" id="Resource_6w3v1"]
+[sub_resource type="Resource" id="Resource_ikrxi"]
 script = ExtResource("1_b3q5r")
 name = "First Quest"
 description = "This is your first quest. Good luck!"
@@ -16,20 +16,20 @@ id = "tvxd77rjNf"
 optional = false
 graph_editor_position = Vector2(-160, 80)
 
-[sub_resource type="Resource" id="Resource_aqqd4"]
+[sub_resource type="Resource" id="Resource_3608w"]
 script = ExtResource("3_aarra")
 description = "Press the button!"
 id = "9QWGIohUh9"
 optional = false
 graph_editor_position = Vector2(520, 120)
 
-[sub_resource type="Resource" id="Resource_dsogh"]
+[sub_resource type="Resource" id="Resource_3f0fb"]
 script = ExtResource("2_72pp1")
-from = SubResource("Resource_6w3v1")
-to = SubResource("Resource_aqqd4")
+from = SubResource("Resource_ikrxi")
+to = SubResource("Resource_3608w")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_wuhdh"]
+[sub_resource type="Resource" id="Resource_0bjba"]
 script = ExtResource("5_xh1xg")
 type = "variable"
 key = "first_button_pressed"
@@ -41,50 +41,50 @@ id = "Uth20FqPig"
 optional = false
 graph_editor_position = Vector2(180, 500)
 
-[sub_resource type="Resource" id="Resource_wnf3t"]
+[sub_resource type="Resource" id="Resource_demkx"]
 script = ExtResource("2_72pp1")
-from = SubResource("Resource_wuhdh")
-to = SubResource("Resource_aqqd4")
+from = SubResource("Resource_0bjba")
+to = SubResource("Resource_3608w")
 edge_type = 1
 
-[sub_resource type="Resource" id="Resource_p6us5"]
+[sub_resource type="Resource" id="Resource_nr6gq"]
 script = ExtResource("3_aarra")
 description = "Press the right button."
 id = "5xlDc6m2uI"
 optional = false
 graph_editor_position = Vector2(1040, 840)
 
-[sub_resource type="Resource" id="Resource_qx6ja"]
+[sub_resource type="Resource" id="Resource_b588i"]
 script = ExtResource("2_72pp1")
-from = SubResource("Resource_aqqd4")
-to = SubResource("Resource_p6us5")
+from = SubResource("Resource_3608w")
+to = SubResource("Resource_nr6gq")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_2e3cc"]
+[sub_resource type="Resource" id="Resource_mqv4m"]
 script = ExtResource("5_8vmba")
 id = "wgN2UKWKLs"
 optional = false
 graph_editor_position = Vector2(1820, 340)
 
-[sub_resource type="Resource" id="Resource_676ck"]
+[sub_resource type="Resource" id="Resource_fodj3"]
 script = ExtResource("2_72pp1")
-from = SubResource("Resource_p6us5")
-to = SubResource("Resource_2e3cc")
+from = SubResource("Resource_nr6gq")
+to = SubResource("Resource_mqv4m")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_g570u"]
+[sub_resource type="Resource" id="Resource_bej3q"]
 script = ExtResource("3_iaucn")
 id = "xwO4thUnpd"
 optional = false
 graph_editor_position = Vector2(2120, 340)
 
-[sub_resource type="Resource" id="Resource_ttuti"]
+[sub_resource type="Resource" id="Resource_i5wmh"]
 script = ExtResource("2_72pp1")
-from = SubResource("Resource_2e3cc")
-to = SubResource("Resource_g570u")
+from = SubResource("Resource_mqv4m")
+to = SubResource("Resource_bej3q")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_ro73p"]
+[sub_resource type="Resource" id="Resource_ax5xf"]
 script = ExtResource("5_xh1xg")
 type = "variable"
 key = "second_button_pressed"
@@ -96,50 +96,50 @@ id = "ARcEhhXzfH"
 optional = false
 graph_editor_position = Vector2(640, 940)
 
-[sub_resource type="Resource" id="Resource_bmuui"]
+[sub_resource type="Resource" id="Resource_awuun"]
 script = ExtResource("2_72pp1")
-from = SubResource("Resource_ro73p")
-to = SubResource("Resource_p6us5")
+from = SubResource("Resource_ax5xf")
+to = SubResource("Resource_nr6gq")
 edge_type = 1
 
-[sub_resource type="Resource" id="Resource_tfttr"]
+[sub_resource type="Resource" id="Resource_qk78o"]
 script = ExtResource("3_aarra")
 description = "Press the right button."
 id = "Z7s9xeSDCQ"
 optional = false
 graph_editor_position = Vector2(1100, -160)
 
-[sub_resource type="Resource" id="Resource_opfry"]
+[sub_resource type="Resource" id="Resource_ifp0c"]
 script = ExtResource("2_72pp1")
-from = SubResource("Resource_aqqd4")
-to = SubResource("Resource_tfttr")
+from = SubResource("Resource_3608w")
+to = SubResource("Resource_qk78o")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_q7o54"]
+[sub_resource type="Resource" id="Resource_tub1c"]
 script = ExtResource("2_72pp1")
-from = SubResource("Resource_tfttr")
-to = SubResource("Resource_2e3cc")
+from = SubResource("Resource_qk78o")
+to = SubResource("Resource_mqv4m")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_ajnus"]
+[sub_resource type="Resource" id="Resource_lxpfm"]
 script = ExtResource("5_xh1xg")
 type = "variable"
 key = "second_button_pressed"
-value_type = 1
+value_type = 0
 bool_value = false
-string_value = "left"
+string_value = ""
 int_value = 0
 id = "J7StYXvgGA"
 optional = false
 graph_editor_position = Vector2(580, -440)
 
-[sub_resource type="Resource" id="Resource_i75ep"]
+[sub_resource type="Resource" id="Resource_i8ro5"]
 script = ExtResource("2_72pp1")
-from = SubResource("Resource_ajnus")
-to = SubResource("Resource_tfttr")
+from = SubResource("Resource_lxpfm")
+to = SubResource("Resource_qk78o")
 edge_type = 1
 
 [resource]
 script = ExtResource("4_4gs13")
-nodes = Array[Resource("res://addons/questify/scripts/model/quest_node.gd")]([SubResource("Resource_wuhdh"), SubResource("Resource_6w3v1"), SubResource("Resource_ro73p"), SubResource("Resource_g570u"), SubResource("Resource_2e3cc"), SubResource("Resource_p6us5"), SubResource("Resource_aqqd4"), SubResource("Resource_tfttr"), SubResource("Resource_ajnus")])
-edges = Array[ExtResource("2_72pp1")]([SubResource("Resource_dsogh"), SubResource("Resource_wnf3t"), SubResource("Resource_qx6ja"), SubResource("Resource_676ck"), SubResource("Resource_ttuti"), SubResource("Resource_bmuui"), SubResource("Resource_opfry"), SubResource("Resource_q7o54"), SubResource("Resource_i75ep")])
+nodes = Array[Resource("res://addons/questify/scripts/model/quest_node.gd")]([SubResource("Resource_0bjba"), SubResource("Resource_ikrxi"), SubResource("Resource_ax5xf"), SubResource("Resource_bej3q"), SubResource("Resource_mqv4m"), SubResource("Resource_nr6gq"), SubResource("Resource_3608w"), SubResource("Resource_qk78o"), SubResource("Resource_lxpfm")])
+edges = Array[ExtResource("2_72pp1")]([SubResource("Resource_3f0fb"), SubResource("Resource_demkx"), SubResource("Resource_b588i"), SubResource("Resource_fodj3"), SubResource("Resource_i5wmh"), SubResource("Resource_awuun"), SubResource("Resource_ifp0c"), SubResource("Resource_tub1c"), SubResource("Resource_i8ro5")])

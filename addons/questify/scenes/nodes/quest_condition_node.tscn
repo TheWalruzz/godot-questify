@@ -126,7 +126,6 @@ visible = false
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 
-[connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="text_changed" from="Type/TypeInput" to="." method="_on_type_text_changed"]
 [connection signal="text_changed" from="Key/KeyInput" to="." method="_on_key_text_changed"]
 [connection signal="tab_selected" from="Value/TabContainer" to="." method="_on_tab_selected"]

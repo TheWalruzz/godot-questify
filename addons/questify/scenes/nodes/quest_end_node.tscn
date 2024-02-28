@@ -21,5 +21,3 @@ script = ExtResource("1_k6nao")
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 text = "Input"
-
-[connection signal="dragged" from="." to="." method="_on_dragged"]

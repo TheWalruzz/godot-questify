@@ -152,23 +152,16 @@ func _on_copy_nodes_request() -> void:
 
 func _on_paste_nodes_request() -> void:
 	if copied_nodes.size() > 0:
-		selected_nodes.clear()
-		for node: QuestGraphNode in get_children():
-			node.selected = false
-		var relative_base_position: Vector2 = copied_nodes.reduce(
-			func(accum: Vector2, current_node: QuestGraphNode):
-				return accum + current_node.position_offset, 
-			Vector2.ZERO
-		) / copied_nodes.size()
+		var nodes_to_copy: Array[QuestGraphNode] = []
 		for node in copied_nodes:
 			var new_node := node.duplicate(7) as QuestGraphNode
-			var model := node.get_model()
-			new_node.load_model(model)
-			new_node.id = ""
-			new_node.has_loaded_position = false
-			add_node(new_node, get_local_mouse_position())
-			new_node.position_offset += node.position_offset - relative_base_position
-			new_node.selected = true
+			new_node.set_meta("original_offset", node.position_offset)
+			nodes_to_copy.append(new_node)
+		var undo_redo := (Engine.get_meta("QuestifyPlugin") as EditorPlugin).get_undo_redo()
+		undo_redo.create_action("Paste Quest Nodes")
+		undo_redo.add_do_method(self, "_paste_nodes", nodes_to_copy)
+		undo_redo.add_undo_method(self, "_undo_paste_nodes", nodes_to_copy)
+		undo_redo.commit_action()
 
 
 func _on_node_selected(node: Node) -> void:
@@ -195,3 +188,28 @@ func _undo_delete_nodes(nodes: Array[QuestGraphNode], connections: Array[Diction
 		add_child(node)
 	for connection in connections:
 		connect_node(connection.from_node, connection.from_port, connection.to_node, connection.to_port)
+
+
+func _paste_nodes(nodes: Array[QuestGraphNode]) -> void:
+	selected_nodes.clear()
+	for node: QuestGraphNode in get_children():
+		node.selected = false
+	var relative_base_position: Vector2 = copied_nodes.reduce(
+		func(accum: Vector2, current_node: QuestGraphNode):
+			return accum + current_node.position_offset, 
+		Vector2.ZERO
+	) / copied_nodes.size()
+	for node in nodes:
+		var model := node.get_model()
+		node.load_model(model)
+		node.id = ""
+		node.has_loaded_position = false
+		add_node(node, get_local_mouse_position())
+		node.position_offset += node.get_meta("original_offset", Vector2.ZERO) - relative_base_position
+		node.selected = true
+	
+	
+func _undo_paste_nodes(nodes: Array[QuestGraphNode]) -> void:
+	for node in nodes:
+		node.selected = false
+		remove_child(node)

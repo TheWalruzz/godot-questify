@@ -28,5 +28,3 @@ text = "Input"
 [node name="OutputLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "Output"
-
-[connection signal="dragged" from="." to="." method="_on_dragged"]

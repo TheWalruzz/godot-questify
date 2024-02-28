@@ -82,6 +82,5 @@ layout_mode = 2
 placeholder_text = "Description"
 wrap_mode = 1
 
-[connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="text_changed" from="NameContainer/NameTextEdit" to="." method="_on_name_text_changed"]
 [connection signal="text_changed" from="DescriptionContainer/DescriptionTextEdit" to="." method="_on_description_text_changed"]
