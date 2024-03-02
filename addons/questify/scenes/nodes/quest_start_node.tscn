@@ -1,12 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://l26esco18bfj"]
+[gd_scene load_steps=3 format=3 uid="uid://l26esco18bfj"]
 
 [ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_start_node.gd" id="1_vadyn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5guh5"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0.368627, 0.0588235, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
 
 [node name="QuestStartNode" type="GraphNode" node_paths=PackedStringArray("name_text_edit", "description_text_edit")]
 offset_right = 280.0
 offset_bottom = 304.0
 mouse_filter = 1
 theme_override_constants/separation = 10
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_5guh5")
 title = "Start"
 slot/0/left_enabled = false
 slot/0/left_type = 0

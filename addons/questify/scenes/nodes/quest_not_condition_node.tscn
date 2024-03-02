@@ -1,10 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0xj8yaod7g67"]
+[gd_scene load_steps=3 format=3 uid="uid://b0xj8yaod7g67"]
 
 [ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_not_condition_node.gd" id="1_13oor"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqv1u"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.137255, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
 
 [node name="QuestNotConditionNode" type="GraphNode"]
 offset_right = 207.0
 offset_bottom = 78.0
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_mqv1u")
 title = "Not Condition"
 slot/0/left_enabled = true
 slot/0/left_type = 1

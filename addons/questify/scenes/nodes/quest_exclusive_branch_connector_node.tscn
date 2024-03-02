@@ -1,10 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxe5sd7isdrfa"]
+[gd_scene load_steps=3 format=3 uid="uid://dxe5sd7isdrfa"]
 
 [ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_exclusive_branch_connector_node.gd" id="1_tuynp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pl7w6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.482353, 0.345098, 0.00392157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
 
 [node name="QuestExclusiveBranchConnectorNode" type="GraphNode"]
 offset_right = 207.0
 offset_bottom = 78.0
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_pl7w6")
 title = "Exclusive Branch Connector"
 slot/0/left_enabled = true
 slot/0/left_type = 0

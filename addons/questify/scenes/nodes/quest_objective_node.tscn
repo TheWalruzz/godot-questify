@@ -1,12 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp18smike5vyv"]
+[gd_scene load_steps=3 format=3 uid="uid://dp18smike5vyv"]
 
 [ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_objective_node.gd" id="1_0u0oi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ihrq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.380392, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
 
 [node name="QuestObjectiveNode" type="GraphNode" node_paths=PackedStringArray("optional_checkbox", "description_text_edit")]
 offset_right = 225.0
 offset_bottom = 305.0
 mouse_filter = 1
 theme_override_constants/separation = 10
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_8ihrq")
 title = "Objective"
 slot/0/left_enabled = true
 slot/0/left_type = 0
