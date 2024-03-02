@@ -1,5 +1,5 @@
 @tool
-class_name QuestEditorView extends Panel
+class_name QuestEditorView extends Control
 
 
 const graph_nodes = [
