@@ -45,6 +45,10 @@ func set_quests(quests: Array[QuestResource]) -> void:
 	_quests.assign(quests)
 	
 	
+func toggle_quest_check(value: bool) -> void:
+	_quest_update_timer.paused = not value
+	
+	
 func _add_timer() -> void:
 	_quest_update_timer = Timer.new()
 	_quest_update_timer.autostart = true

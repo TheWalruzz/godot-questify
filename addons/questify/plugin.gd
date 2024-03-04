@@ -5,7 +5,6 @@ extends EditorPlugin
 const QuestEditorViewScene = preload("./scenes/quest_editor_view.tscn")
 
 
-
 var quest_editor_view: QuestEditorView
 
 
