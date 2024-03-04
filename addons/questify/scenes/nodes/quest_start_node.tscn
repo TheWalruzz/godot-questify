@@ -57,6 +57,7 @@ slot/3/draw_stylebox = true
 script = ExtResource("1_vadyn")
 name_text_edit = NodePath("NameContainer/NameTextEdit")
 description_text_edit = NodePath("DescriptionContainer/DescriptionTextEdit")
+label_color = Color(0, 0, 0, 1)
 
 [node name="OutputSlot" type="Label" parent="."]
 layout_mode = 2

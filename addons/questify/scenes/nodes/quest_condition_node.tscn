@@ -70,6 +70,7 @@ tab_container = NodePath("Value/TabContainer")
 boolean_value = NodePath("Value/TabContainer/Boolean")
 string_value = NodePath("Value/TabContainer/String")
 integer_value = NodePath("Value/TabContainer/Integer")
+label_color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2

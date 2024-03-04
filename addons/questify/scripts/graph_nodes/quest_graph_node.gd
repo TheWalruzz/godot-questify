@@ -2,8 +2,16 @@
 class_name QuestGraphNode extends GraphNode
 
 
+@export var label_color: Color = Color.WHITE
+
+
 var id: String
 var has_loaded_position := false
+
+
+func _ready() -> void:
+	var title_label := get_titlebar_hbox().get_children()[0] as Label
+	title_label.add_theme_color_override("font_color", label_color)
 
 
 func get_model() -> QuestNode:
