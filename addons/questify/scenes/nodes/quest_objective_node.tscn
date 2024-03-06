@@ -14,7 +14,7 @@ corner_radius_top_right = 4
 
 [node name="QuestObjectiveNode" type="GraphNode" node_paths=PackedStringArray("optional_checkbox", "description_text_edit", "metadata_editor")]
 offset_right = 468.0
-offset_bottom = 583.0
+offset_bottom = 483.0
 mouse_filter = 1
 theme_override_constants/separation = 10
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_8ihrq")
@@ -135,7 +135,7 @@ text = "Add Metadata"
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MetaDataEditor"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
 
 [node name="ItemContainer" type="VBoxContainer" parent="MetaDataEditor/ScrollContainer"]

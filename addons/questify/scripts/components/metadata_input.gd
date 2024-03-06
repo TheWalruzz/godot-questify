@@ -9,9 +9,6 @@ signal value_changed(value: Variant)
 @export var inputs_container: Control
 
 
-var _was_initialized := false
-
-
 func _ready() -> void:
 	type_select.set_item_icon(0, get_theme_icon("bool", "EditorIcons"))
 	type_select.set_item_icon(1, get_theme_icon("String", "EditorIcons"))

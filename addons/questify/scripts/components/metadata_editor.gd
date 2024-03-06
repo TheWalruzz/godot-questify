@@ -19,7 +19,8 @@ func set_value(key: String, value: Variant) -> void:
 	
 	
 func clear_value(key: String) -> void:
-	container.remove_meta(key)
+	if container.has_meta(key):
+		container.remove_meta(key)
 	
 	
 func _add_item(key := "", value: Variant = false) -> MetadataItem:
