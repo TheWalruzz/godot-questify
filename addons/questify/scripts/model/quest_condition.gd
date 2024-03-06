@@ -10,22 +10,10 @@ enum ValueType {
 
 @export var type: String
 @export var key: String
-@export var value_type: ValueType
-@export var bool_value: bool
-@export var string_value: String
-@export var int_value: int
 
 
 var value: Variant:
-	get:
-		match value_type:
-			ValueType.BOOLEAN:
-				return bool_value
-			ValueType.STRING:
-				return string_value
-			ValueType.INTEGER:
-				return int_value
-		return null
+	get: return get_meta("value")
 
 
 func update() -> void:

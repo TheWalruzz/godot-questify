@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhbl3kyiea18r"]
+[gd_scene load_steps=4 format=3 uid="uid://bhbl3kyiea18r"]
 
 [ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_condition_node.gd" id="1_a8dc6"]
+[ext_resource type="PackedScene" uid="uid://cdmvb6rdyjmhy" path="res://addons/questify/scenes/metadata_input.tscn" id="2_l1xol"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjk50"]
 content_margin_left = 4.0
@@ -11,9 +12,9 @@ bg_color = Color(0.266667, 0.694118, 0.921569, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 
-[node name="QuestConditionNode" type="GraphNode" node_paths=PackedStringArray("type_input", "key_input", "tab_container", "boolean_value", "string_value", "integer_value")]
-offset_right = 277.0
-offset_bottom = 357.0
+[node name="QuestConditionNode" type="GraphNode" node_paths=PackedStringArray("type_input", "key_input", "meta_input")]
+offset_right = 377.0
+offset_bottom = 309.0
 mouse_filter = 1
 theme_override_constants/separation = 10
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_sjk50")
@@ -66,10 +67,7 @@ slot/4/draw_stylebox = true
 script = ExtResource("1_a8dc6")
 type_input = NodePath("Type/TypeInput")
 key_input = NodePath("Key/KeyInput")
-tab_container = NodePath("Value/TabContainer")
-boolean_value = NodePath("Value/TabContainer/Boolean")
-string_value = NodePath("Value/TabContainer/String")
-integer_value = NodePath("Value/TabContainer/Integer")
+meta_input = NodePath("Value/MetadataInput")
 label_color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
@@ -88,7 +86,6 @@ layout_mode = 2
 text = "Query Type"
 
 [node name="TypeInput" type="LineEdit" parent="Type"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 placeholder_text = "Type"
@@ -101,7 +98,6 @@ layout_mode = 2
 text = "Key"
 
 [node name="KeyInput" type="LineEdit" parent="Key"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 placeholder_text = "Key"
@@ -113,33 +109,9 @@ layout_mode = 2
 layout_mode = 2
 text = "Value"
 
-[node name="TabContainer" type="TabContainer" parent="Value"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/side_margin = 0
-
-[node name="Boolean" type="CheckBox" parent="Value/TabContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-text = "Must be true?"
-
-[node name="String" type="LineEdit" parent="Value/TabContainer"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-placeholder_text = "Value"
-
-[node name="Integer" type="SpinBox" parent="Value/TabContainer"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(0, 24)
+[node name="MetadataInput" parent="Value" instance=ExtResource("2_l1xol")]
 layout_mode = 2
 
 [connection signal="text_changed" from="Type/TypeInput" to="." method="_on_type_text_changed"]
 [connection signal="text_changed" from="Key/KeyInput" to="." method="_on_key_text_changed"]
-[connection signal="tab_selected" from="Value/TabContainer" to="." method="_on_tab_selected"]
-[connection signal="toggled" from="Value/TabContainer/Boolean" to="." method="_on_boolean_toggled"]
-[connection signal="text_changed" from="Value/TabContainer/String" to="." method="_on_string_text_changed"]
-[connection signal="value_changed" from="Value/TabContainer/Integer" to="." method="_on_integer_value_changed"]
+[connection signal="value_changed" from="Value/MetadataInput" to="." method="_on_metadata_input_value_changed"]

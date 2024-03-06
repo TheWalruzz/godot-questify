@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp18smike5vyv"]
+[gd_scene load_steps=4 format=3 uid="uid://dp18smike5vyv"]
 
 [ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_objective_node.gd" id="1_0u0oi"]
+[ext_resource type="Script" path="res://addons/questify/scripts/components/metadata_editor.gd" id="2_nklti"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ihrq"]
 content_margin_left = 4.0
@@ -11,9 +12,9 @@ bg_color = Color(0.368627, 0.196078, 0.74902, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 
-[node name="QuestObjectiveNode" type="GraphNode" node_paths=PackedStringArray("optional_checkbox", "description_text_edit")]
-offset_right = 225.0
-offset_bottom = 305.0
+[node name="QuestObjectiveNode" type="GraphNode" node_paths=PackedStringArray("optional_checkbox", "description_text_edit", "metadata_editor")]
+offset_right = 468.0
+offset_bottom = 583.0
 mouse_filter = 1
 theme_override_constants/separation = 10
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_8ihrq")
@@ -63,9 +64,19 @@ slot/4/right_type = 0
 slot/4/right_color = Color(1, 1, 1, 1)
 slot/4/right_icon = null
 slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
 script = ExtResource("1_0u0oi")
 optional_checkbox = NodePath("OptionalCheckbox")
 description_text_edit = NodePath("DescriptionContainer/DescriptionTextEdit")
+metadata_editor = NodePath("MetaDataEditor")
 
 [node name="SlotsContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -104,5 +115,33 @@ layout_mode = 2
 placeholder_text = "Description"
 wrap_mode = 1
 
+[node name="MetaDataEditor" type="VBoxContainer" parent="." node_paths=PackedStringArray("container", "items_container")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+script = ExtResource("2_nklti")
+container = NodePath("..")
+items_container = NodePath("ScrollContainer/ItemContainer")
+
+[node name="MetadataLabel" type="Label" parent="MetaDataEditor"]
+layout_mode = 2
+text = "Metadata"
+
+[node name="AddMetadataButton" type="Button" parent="MetaDataEditor"]
+layout_mode = 2
+text = "Add Metadata"
+
+[node name="HSeparator" type="HSeparator" parent="MetaDataEditor"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MetaDataEditor"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="ItemContainer" type="VBoxContainer" parent="MetaDataEditor/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [connection signal="toggled" from="OptionalCheckbox" to="." method="_on_optional_checkbox_toggled"]
 [connection signal="text_changed" from="DescriptionContainer/DescriptionTextEdit" to="." method="_on_description_text_changed"]
+[connection signal="pressed" from="MetaDataEditor/AddMetadataButton" to="MetaDataEditor" method="_on_add_metadata_button_pressed"]
