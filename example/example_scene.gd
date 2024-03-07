@@ -28,8 +28,8 @@ func _ready() -> void:
 	)
 	
 	Questify.quest_completed.connect(
-		func(new_quest: QuestResource):
-			current_quest_label.text = "%s - COMPLETED!" % new_quest.name
+		func(completed_quest: QuestResource):
+			current_quest_label.text = "%s - COMPLETED!" % completed_quest.name
 			objectives.clear()
 	)
 	

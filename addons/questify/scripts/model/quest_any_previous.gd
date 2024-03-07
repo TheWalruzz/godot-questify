@@ -1,5 +1,9 @@
 class_name QuestAnyPrevious extends QuestNode
+
+
+func get_active() -> bool:
+	return any_previous_nodes_completed()
 	
 	
 func get_completed() -> bool:
-	return any_previous_nodes_completed()
+	return get_active()
