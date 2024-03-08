@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdmvb6rdyjmhy"]
 
-[ext_resource type="Script" path="res://addons/questify/scripts/components/metadata_input.gd" id="1_hs4u8"]
-[ext_resource type="Script" path="res://addons/questify/scripts/components/vector2_editor.gd" id="2_3tex4"]
-[ext_resource type="Script" path="res://addons/questify/scripts/components/vector3_editor.gd" id="3_r86jk"]
+[ext_resource type="Script" path="res://addons/questify/scripts/components/variant_input.gd" id="1_hs4u8"]
+[ext_resource type="Script" path="res://addons/questify/scripts/components/vector2_input.gd" id="2_3tex4"]
+[ext_resource type="Script" path="res://addons/questify/scripts/components/vector3_input.gd" id="3_r86jk"]
 
 [sub_resource type="Image" id="Image_mw7k1"]
 data = {

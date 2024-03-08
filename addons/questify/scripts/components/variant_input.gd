@@ -1,5 +1,5 @@
 @tool
-class_name MetadataInput extends HBoxContainer
+class_name VariantInput extends HBoxContainer
 
 
 signal value_changed(value: Variant)

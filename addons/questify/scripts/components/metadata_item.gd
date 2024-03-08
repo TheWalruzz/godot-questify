@@ -3,7 +3,7 @@ class_name MetadataItem extends VBoxContainer
 
 
 @export var key_value: LineEdit
-@export var metadata_input: MetadataInput
+@export var metadata_input: VariantInput
 @export var remove_button: Button
 
 
@@ -23,6 +23,10 @@ func set_key_value(key: String, value: Variant) -> void:
 	key_value.text = key
 	_current_value = value
 	metadata_input.set_value(value)
+	
+	
+func get_key() -> String:
+	return _current_key
 	
 	
 func set_editor(meta_editor: MetadataEditor) -> void:
