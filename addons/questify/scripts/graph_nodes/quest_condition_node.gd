@@ -9,7 +9,7 @@ var value: Variant
 
 @export var type_input: LineEdit
 @export var key_input: LineEdit
-@export var meta_input: MetadataInput
+@export var meta_input: VariantInput
 
 
 func _get_model() -> QuestNode:

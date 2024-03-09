@@ -29,26 +29,30 @@ func get_key() -> String:
 	return _current_key
 	
 	
+func get_value() -> Variant:
+	return _current_value
+	
+	
 func set_editor(meta_editor: MetadataEditor) -> void:
 	_meta_editor = meta_editor
 
 
 func _on_remove_button_pressed() -> void:
-	_meta_editor.clear_value(_current_key)
+	_meta_editor.erase_value(self)
 	queue_free()
 
 
 func _on_metadata_input_value_changed(new_value: Variant) -> void:
 	_current_value = new_value
 	if not _current_key.is_empty():
-		_meta_editor.set_value(_current_key, _current_value)
+		_meta_editor.set_value(self)
 
 
 func _on_key_value_text_changed(new_text: String) -> void:
 	_debouncer.debounce(func():
 		if not _current_key.is_empty():
-			_meta_editor.clear_value(_current_key)
+			_meta_editor.clear_value(self)
 		_current_key = new_text
 		if _current_value != null:
-			_meta_editor.set_value(_current_key, _current_value)
+			_meta_editor.set_value(self)
 	)
