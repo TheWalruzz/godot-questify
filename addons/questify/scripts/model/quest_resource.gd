@@ -32,6 +32,7 @@ func instantiate() -> QuestResource:
 		return self
 	var instance := duplicate(true) as QuestResource
 	instance.is_instance = true
+	instance.set_meta("resource_path", resource_path)
 	return instance
 
 
@@ -83,6 +84,12 @@ func get_previous_nodes(node: QuestNode, edge_type: QuestEdge.EdgeType = QuestEd
 			return edge.from
 	))
 	return result
+
+
+func get_resource_path() -> String:
+	if is_instance:
+		return get_meta("resource_path")
+	return resource_path
 	
 	
 func request_query(type: String, key: String, value: Variant, requester: QuestCondition) -> void:
@@ -107,6 +114,9 @@ func serialize() -> Dictionary:
 	
 	
 func deserialize(data: Dictionary) -> void:
+	if not is_instance:
+		printerr("Quest must be instantiated to be deserialized. Use instantiate().")
+		return
 	completed = data.completed
 	var node_map := {}
 	for node in nodes:

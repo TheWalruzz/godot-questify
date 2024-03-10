@@ -43,6 +43,25 @@ func get_quests() -> Array[QuestResource]:
 func set_quests(quests: Array[QuestResource]) -> void:
 	clear()
 	_quests.assign(quests)
+
+
+func serialize() -> Array:
+	var result := []
+	for quest in _quests:
+		result.append({
+			path = quest.get_resource_path(),
+			data = quest.serialize(),
+		})
+	return result
+
+
+func deserialize(data: Array) -> void:
+	clear()
+	for serialized_quest in data:
+		var quest := load(serialized_quest.path) as QuestResource
+		var instance := quest.instantiate()
+		instance.deserialize(serialized_quest.data)
+		_quests.append(instance)
 	
 	
 func toggle_quest_check(value: bool) -> void:
