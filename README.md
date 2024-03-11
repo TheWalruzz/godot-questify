@@ -122,7 +122,7 @@ Questify.toggle_quest_check(false)
 ```
 
 ### Serialization and deserialization
-For most cases, Questify can holisitically serialize and deserialize state of current quests using methods provided to the autoload:
+For most cases, Questify can holistically serialize and deserialize state of current quests using methods provided to the autoload:
 
 ```gdscript
 var serialized_state := Questify.serialize() # returns Array
@@ -153,6 +153,10 @@ Questify.set_quests(quests)
 
 And that's it!
 
+### Utilities
+
+You can get an Array of active and completed quests at any time, by using `Questify.get_active_quests()` and `Questify.get_completed_quests()` respectively.
+
 # Quest Nodes
 
 Nodes have two internal states:
@@ -172,10 +176,37 @@ Completed state means that the node has passed all the conditions and won't be p
 
 ### Start Node
 
-The entry point of any quest. There can be only exactly one in each quest.
+The entry point of any quest. There can be only exactly one in each quest. Quest is considered started, when start node's `active` state is (manually) set to true.
 
 ### End Node
 
-The node marking the end (and completion) of a quest. There should be only one in quest.
+The node marking the end (and completion) of a quest. There should be only one in quest. End node (and quest in general) is considered completed, when all connected previous nodes are completed.
 
-### TODO
+### Objective Node
+
+The main building block of a quest, the objective node denotes any steps in quest that player need to take in order to finish it. Node itself stores the objective description, whether it's optional and metadata, useful for adding things like coordinates for quest markers on minimap. There can be many objectives in parallel, but I will talk about branching a little bit later.
+
+By setting `optional` to true, any next node will treat this objective as completed, regardless of actual `completed` state.
+
+Metadata make use of Godot's meta functionality (see: https://docs.godotengine.org/en/stable/classes/class_object.html#class-object-method-get-meta for more details). This allows objective nodes to keep some dynamic data that can be accessed by your game at any time. This can be useful for storing things like map markers etc. 
+
+If you create a meta value called `marker`, you can later retrieve the data using `get_meta`:
+
+```gdscript
+objective.get_meta("marker")
+```
+
+### Condition Nodes (Condition Node, Any Condition Node, Not Condition Node)
+
+In order for objectives to work, one or more conditions need to be attached to the objective node. Condition nodes use a special type of cdonnection, so you don't have to worry about connecting condition to where you're not supposed to. 
+
+By default, ALL the attached conditions need to pass for objective to be completed. You can modify this behavior by attaching `Any Condition` node and `Not Condition` node which do exactly what they say on the tin: 
+* `Any Condition` will make the condition pass when at least one of the attached conditions is true. 
+* `Not Condition` will negate the output of connected conditions, including `Any Condition` node.
+
+### Branching Nodes (Any Previous Node, Exclusive Branch Connector Node)
+
+When connecting objectives in parallel, each branch will have to be fully completed in order for the graph to go further. However, quests should allow for proper branching - you might want to allow only one of many paths to finish the quest. For this purpose, Questify includes `Any Previous` and `Exclusive Branch Connector` nodes.
+
+* `Any Previous` will be completed when at least one of its parent objectives is completed (Disclaimer: `optional` will be treated as `completed` in this case!).
+* `Exclusive Branch Connector` is a special kind of node with no outputs and is necessary for longer branches to operate correctly. While simple `Any Previous` node at the end of short, one-layer deep branches will work fine, `Exclusive Branch Connector` is necessary for longer ones. Attach outputs of the first objectives of each branch to this nodes inputs and whenever player completes one of them, others will become inactive and unavailable. This takes advantage of the `active`/`completed` state model, as objective cannot be active when one of its children is active - in this case it means that `Exclusive Branch Connector` becomes active and in turn disables other branches.

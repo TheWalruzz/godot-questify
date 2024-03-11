@@ -38,6 +38,24 @@ func clear() -> void:
 	
 func get_quests() -> Array[QuestResource]:
 	return _quests
+
+
+func get_active_quests() -> Array[QuestResource]:
+	var result: Array[QuestResource] = []
+	result.assign(_quests.filter(
+		func(quest: QuestResource):
+			return quest.started and not quest.completed
+	))
+	return result
+
+
+func get_completed_quests() -> Array[QuestResource]:
+	var result: Array[QuestResource] = []
+	result.assign(_quests.filter(
+		func(quest: QuestResource):
+			return quest.completed
+	))
+	return result
 	
 	
 func set_quests(quests: Array[QuestResource]) -> void:
