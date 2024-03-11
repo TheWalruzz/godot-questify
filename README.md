@@ -210,3 +210,6 @@ When connecting objectives in parallel, each branch will have to be fully comple
 
 * `Any Previous` will be completed when at least one of its parent objectives is completed (Disclaimer: `optional` will be treated as `completed` in this case!).
 * `Exclusive Branch Connector` is a special kind of node with no outputs and is necessary for longer branches to operate correctly. While simple `Any Previous` node at the end of short, one-layer deep branches will work fine, `Exclusive Branch Connector` is necessary for longer ones. Attach outputs of the first objectives of each branch to this nodes inputs and whenever player completes one of them, others will become inactive and unavailable. This takes advantage of the `active`/`completed` state model, as objective cannot be active when one of its children is active - in this case it means that `Exclusive Branch Connector` becomes active and in turn disables other branches.
+
+# License
+Distributed under the [MIT License](https://github.com/TheWalruzz/godot-sx/blob/main/LICENSE).
