@@ -20,17 +20,16 @@ var _quest_update_timer: Timer
 
 func _ready() -> void:
 	_add_timer()
-	_quest_update_timer.timeout.connect(
-		func():
-			for quest in _quests:
-				quest.update()
-	)
+	_quest_update_timer.timeout.connect(update_quests)
 	
 	
 func start_quest(quest_resource: QuestResource) -> void:
 	_quests.append(quest_resource)
 	quest_resource.start()
 	
+func update_quests():
+	for quest in _quests:
+		quest.update()
 
 func clear() -> void:
 	_quests.clear()
