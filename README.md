@@ -59,10 +59,7 @@ signal quest_completed(quest: QuestResource)
 ### Handling condition queries
 
 Questify uses an architecture-agnostic query system to handle quest conditions. This is due to some of the limitations of Godot plugins, but has some advantages. This way Questify can be setup without much work on your part.
-
-Each Condition Node from an active objective will periodically send a query request via its signal. It's up to you to handle each type, key and value.
-
-Check interval is 0.5 seconds by default, but can be changed in `Project Settings -> Questify -> General -> Update Interval`.
+Questify will emit proper query signal and you just have to handle each type of query and set the objective as completed.
 
 This signal has following signature:
 
@@ -75,9 +72,9 @@ As an example, you can setup this simple handler somewhere in your DataManager a
 ```gdscript
 Questify.condition_query_requested.connect(
   func(type: String, key: String, value: Variant, requester: QuestCondition):
-    if type == "variable":
-      if get_value(key) == value:
-        requester.set_completed(true)
+	if type == "variable":
+	  if get_value(key) == value:
+		requester.set_completed(true)
 )
 ```
 
@@ -86,41 +83,50 @@ Of course, you might need to use more operators than equality in queries, but th
 ```gdscript
 Questify.condition_query_requested.connect(
   func(type: String, key: String, value: Variant, requester: QuestCondition):
-    if type.begins_with("var"):
-      var operator := type.get_slice(":", 1)
-      var variable := get_value(key)
-      var result := false
-      match operator:
-        type, "eq", "==":
-          result = variable == value
-        "neq", "ne", "!eq", "!=":
-          result = variable != value
-        "lt", "<":
-          assert(not variable is bool, "Incorrect variable type for quest condition query operator")
-          result = variable < value
-        "lte", "<=":
-          assert(not variable is bool, "Incorrect variable type for quest condition query operator")
-          result = variable <= value
-        "gt", ">":
-          assert(not variable is bool, "Incorrect variable type for quest condition query operator")
-          result = variable > value
-        "gte", ">=":
-          assert(not variable is bool, "Incorrect variable type for quest condition query operator")
-          result = variable >= value
-        _:
-          printerr("Unknown operator '%s' in quest condition query" % operator)
-      requester.set_completed(result)
+	if type.begins_with("var"):
+	  var operator := type.get_slice(":", 1)
+	  var variable := get_value(key)
+	  var result := false
+	  match operator:
+		type, "eq", "==":
+		  result = variable == value
+		"neq", "ne", "!eq", "!=":
+		  result = variable != value
+		"lt", "<":
+		  assert(not variable is bool, "Incorrect variable type for quest condition query operator")
+		  result = variable < value
+		"lte", "<=":
+		  assert(not variable is bool, "Incorrect variable type for quest condition query operator")
+		  result = variable <= value
+		"gt", ">":
+		  assert(not variable is bool, "Incorrect variable type for quest condition query operator")
+		  result = variable > value
+		"gte", ">=":
+		  assert(not variable is bool, "Incorrect variable type for quest condition query operator")
+		  result = variable >= value
+		_:
+		  printerr("Unknown operator '%s' in quest condition query" % operator)
+	  requester.set_completed(result)
 )
 ```
 
 In the example above, you can now use more complex query types, like: `var`, `var:>`, `variable:lte` etc.
 
-Additionally, condition checks can be paused when necessary (e.g. when the game is paused):
+### Triggering condition checks
+
+By default, Questify uses a simple periodical polling mechanism to send a query request via its signal.
+Check interval is 0.5 seconds by default, but can be changed in `Project Settings -> Questify -> General -> Update Interval`.
+
+Since this might be less performant than on-demand updates and is more suited for smaller projects, this behavior can be toggled off in settings: `Project Settings -> Questify -> General -> Update Polling`.
+If it's disabled, you have to manually trigger quest updates using `Questify.update_quests()` when e.g. some data changes in your DataManager (or its equivalent). This will immediately send query requests from all active objectives.
+
+Condition polling can also be paused from code when necessary (e.g. when the game is paused):
 
 ```gdscript
-Questify.toggle_quest_check(false)
+Questify.toggle_update_polling(false) # or `true` if enabling it back.
 ```
-If you want to manually trigger quest updates when the timer is disabled, you can use `Questify.update_quests()`.
+
+This will do nothing if `Update Polling` setting is off.
 
 ### Serialization and deserialization
 For most cases, Questify can holistically serialize and deserialize state of current quests using methods provided to the autoload:
@@ -213,4 +219,4 @@ When connecting objectives in parallel, each branch will have to be fully comple
 * `Exclusive Branch Connector` is a special kind of node with no outputs and is necessary for longer branches to operate correctly. While simple `Any Previous` node at the end of short, one-layer deep branches will work fine, `Exclusive Branch Connector` is necessary for longer ones. Attach outputs of the first objectives of each branch to this nodes inputs and whenever player completes one of them, others will become inactive and unavailable. This takes advantage of the `active`/`completed` state model, as objective cannot be active when one of its children is active - in this case it means that `Exclusive Branch Connector` becomes active and in turn disables other branches.
 
 # License
-Distributed under the [MIT License](https://github.com/TheWalruzz/godot-sx/blob/main/LICENSE).
+Distributed under the [MIT License](https://github.com/TheWalruzz/godot-questify/blob/main/LICENSE).

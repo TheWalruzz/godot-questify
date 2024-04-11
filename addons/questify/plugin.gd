@@ -11,8 +11,7 @@ var quest_editor_view: QuestEditorView
 func _enter_tree() -> void:
 	add_autoload_singleton("Questify", "quest_manager.gd")
 	
-	if not ProjectSettings.has_setting("questify/general/update_interval"):
-		ProjectSettings.set_setting("questify/general/update_interval", 0.5)
+	QuestifySettings.init_settings()
 	
 	Engine.set_meta("QuestifyPlugin", self)
 	

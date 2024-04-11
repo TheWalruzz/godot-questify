@@ -36,3 +36,4 @@ update_interval=0.5
 [questify]
 
 general/update_interval=0.5
+general/update_polling=true

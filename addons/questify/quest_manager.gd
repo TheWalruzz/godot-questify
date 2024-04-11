@@ -9,27 +9,24 @@ signal quest_completed(quest: QuestResource)
 
 
 var _quests: Array[QuestResource] = []
-
-
-var update_interval: float:
-	get: return ProjectSettings.get_setting("questify/general/update_interval") as float
-
-
 var _quest_update_timer: Timer
 
 
 func _ready() -> void:
-	_add_timer()
-	_quest_update_timer.timeout.connect(update_quests)
+	if QuestifySettings.polling_enabled:
+		_add_timer()
+		_quest_update_timer.timeout.connect(update_quests)
 	
 	
 func start_quest(quest_resource: QuestResource) -> void:
 	_quests.append(quest_resource)
 	quest_resource.start()
+
 	
 func update_quests():
 	for quest in _quests:
 		quest.update()
+
 
 func clear() -> void:
 	_quests.clear()
@@ -88,5 +85,5 @@ func toggle_quest_check(value: bool) -> void:
 func _add_timer() -> void:
 	_quest_update_timer = Timer.new()
 	_quest_update_timer.autostart = true
-	_quest_update_timer.wait_time = update_interval
+	_quest_update_timer.wait_time = QuestifySettings.polling_interval
 	add_child(_quest_update_timer)
