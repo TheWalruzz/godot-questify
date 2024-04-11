@@ -78,7 +78,7 @@ func deserialize(data: Array) -> void:
 		_quests.append(instance)
 	
 	
-func toggle_quest_check(value: bool) -> void:
+func toggle_update_polling(value: bool) -> void:
 	_quest_update_timer.paused = not value
 	
 	
