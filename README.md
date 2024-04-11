@@ -120,7 +120,7 @@ Additionally, condition checks can be paused when necessary (e.g. when the game 
 ```gdscript
 Questify.toggle_quest_check(false)
 ```
-In this case, you'll have to manually tell Questify to update the queries using the `Questify.update_quests()` method
+If you want to manually trigger quest updates when the timer is disabled, you can use `Questify.update_quests()`.
 
 ### Serialization and deserialization
 For most cases, Questify can holistically serialize and deserialize state of current quests using methods provided to the autoload:
