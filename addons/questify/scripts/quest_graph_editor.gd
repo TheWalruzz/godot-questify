@@ -5,6 +5,7 @@ class_name QuestGraphEditor extends GraphEdit
 const QuestAnyConditionNodeScene = preload("../scenes/nodes/quest_any_condition_node.tscn")
 const QuestAnyPreviousNodeScene = preload("../scenes/nodes/quest_any_previous_node.tscn")
 const QuestConditionNodeScene = preload("../scenes/nodes/quest_condition_node.tscn")
+const QuestConditionalBranchNodeScene = preload("../scenes/nodes/quest_conditional_branch_node.tscn")
 const QuestEndNodeScene = preload("../scenes/nodes/quest_end_node.tscn")
 const QuestExclusiveBranchConnectorNodeScene = preload("../scenes/nodes/quest_exclusive_branch_connector_node.tscn")
 const QuestNotConditionNodeScene = preload("../scenes/nodes/quest_not_condition_node.tscn")
@@ -107,6 +108,8 @@ func _get_graph_node(node: QuestNode) -> QuestGraphNode:
 		return QuestAnyPreviousNodeScene.instantiate()
 	elif node is QuestCondition:
 		return QuestConditionNodeScene.instantiate()
+	elif node is QuestConditionalBranch:
+		return QuestConditionalBranchNodeScene.instantiate()
 	elif node is QuestEnd:
 		return QuestEndNodeScene.instantiate()
 	elif node is QuestExclusiveBranchConnector:

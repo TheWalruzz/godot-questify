@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://bma5kd4ixgi42"]
+
+[ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_conditional_branch_node.gd" id="1_m2g8t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5f0p"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.294118, 0.384314, 0.254902, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[node name="QuestConditionalBranchNode" type="GraphNode"]
+offset_right = 200.0
+offset_bottom = 116.0
+theme_override_constants/separation = 10
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_r5f0p")
+title = "Conditional Branch"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 1
+slot/1/left_color = Color(0, 0.584314, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_m2g8t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="InputLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Input"
+
+[node name="OutputLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Output"
+
+[node name="ConditionsLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Conditions"

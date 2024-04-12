@@ -8,6 +8,7 @@ const graph_nodes = [
 	{label = "Objective Node", scene = preload("../scenes/nodes/quest_objective_node.tscn")},
 	{label = "Any Previous Node", scene = preload("../scenes/nodes/quest_any_previous_node.tscn")},
 	{label = "Exclusive Branch Connector Node", scene = preload("../scenes/nodes/quest_exclusive_branch_connector_node.tscn")},
+	{label = "Conditional Branch Node", scene = preload("res://addons/questify/scenes/nodes/quest_conditional_branch_node.tscn")},
 	{label = "Condition Node", scene = preload("../scenes/nodes/quest_condition_node.tscn")},
 	{label = "Any Condition Node", scene = preload("../scenes/nodes/quest_any_condition_node.tscn")},
 	{label = "Not Condition Node", scene = preload("../scenes/nodes/quest_not_condition_node.tscn")},

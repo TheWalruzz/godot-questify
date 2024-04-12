@@ -24,11 +24,17 @@ func get_active() -> bool:
 	
 	
 func update() -> void:
+	var just_completed := false
 	if get_active():
+		print(description)
 		for condition in conditions:
 			condition.update()
 			if not condition.get_completed():
 				return
 		completed = true
-		_graph.complete_objective(self)
+		just_completed = true
 	super()
+	# mark objective as completed AFTER the updates in next nodes
+	# this is necessary for Conditional Branch node to work
+	if just_completed:
+		_graph.complete_objective(self)
