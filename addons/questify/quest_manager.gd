@@ -79,7 +79,8 @@ func deserialize(data: Array) -> void:
 	
 	
 func toggle_update_polling(value: bool) -> void:
-	_quest_update_timer.paused = not value
+	if QuestifySettings.polling_enabled:
+		_quest_update_timer.paused = not value
 	
 	
 func _add_timer() -> void:
