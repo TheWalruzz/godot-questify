@@ -56,13 +56,19 @@ func _serialize_resource() -> QuestResource:
 	var start_nodes := find_children("", "QuestStartNode", false, false)
 	if start_nodes.size() != 1:
 		# TODO: add better error handling
-		printerr("Exactly one QuestStartNode is required in graph")
+		printerr("Exactly one QuestStartNode is required in a graph")
 		return null
 		
 	var end_nodes := find_children("", "QuestEndNode", false, false)
 	if end_nodes.size() != 1:
 		# TODO: add better error handling
-		printerr("Exactly one QuestEndNode is required in graph")
+		printerr("Exactly one QuestEndNode is required in a graph")
+		return null
+		
+	var objective_nodes := find_children("", "QuestObjectiveNode", false, false)
+	if objective_nodes.size() == 0:
+		# TODO: add better error handling
+		printerr("One or more QuestObjectiveNodes are required in a graph")
 		return null
 	
 	var connections := get_connection_list()
