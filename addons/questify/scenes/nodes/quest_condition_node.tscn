@@ -18,6 +18,7 @@ offset_bottom = 309.0
 mouse_filter = 1
 theme_override_constants/separation = 10
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_sjk50")
+resizable = true
 title = "Condition"
 slot/0/left_enabled = false
 slot/0/left_type = 0

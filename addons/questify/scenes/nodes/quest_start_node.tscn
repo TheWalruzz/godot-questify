@@ -17,6 +17,7 @@ offset_bottom = 304.0
 mouse_filter = 1
 theme_override_constants/separation = 10
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_5guh5")
+resizable = true
 title = "Start"
 slot/0/left_enabled = false
 slot/0/left_type = 0
