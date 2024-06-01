@@ -8,6 +8,7 @@ var quest_description: String
 
 @export var name_text_edit: LineEdit
 @export var description_text_edit: TextEdit
+@export var metadata_editor: MetadataEditor
 
 
 func _get_model() -> QuestNode:
@@ -17,6 +18,8 @@ func _get_model() -> QuestNode:
 func _set_model_properties(node: QuestNode) -> void:
 	node.name = quest_name
 	node.description = quest_description
+	for key in get_meta_list():
+		node.set_meta(key, get_meta(key))
 	
 	
 func _get_model_properties(node: QuestNode) -> void:
@@ -24,6 +27,9 @@ func _get_model_properties(node: QuestNode) -> void:
 	name_text_edit.text = node.name
 	quest_description = node.description
 	description_text_edit.text = node.description
+	for key in node.get_meta_list():
+		set_meta(key, node.get_meta(key))
+	metadata_editor.update()
 
 
 func _on_name_text_changed(new_text: String) -> void:
