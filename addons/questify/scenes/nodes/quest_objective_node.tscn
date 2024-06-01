@@ -18,6 +18,7 @@ offset_bottom = 483.0
 mouse_filter = 1
 theme_override_constants/separation = 10
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_8ihrq")
+resizable = true
 title = "Objective"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -118,6 +119,7 @@ wrap_mode = 1
 [node name="MetaDataEditor" type="VBoxContainer" parent="." node_paths=PackedStringArray("container", "items_container")]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 4
 script = ExtResource("2_nklti")
 container = NodePath("..")
@@ -137,6 +139,7 @@ layout_mode = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="MetaDataEditor"]
 custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="ItemContainer" type="VBoxContainer" parent="MetaDataEditor/ScrollContainer"]
 layout_mode = 2
