@@ -4,6 +4,7 @@ class_name QuestNode extends Resource
 @export var id: String
 @export var optional: bool = false
 @export var graph_editor_position: Vector2
+@export var graph_editor_size: Vector2
 
 
 var completed: bool = false

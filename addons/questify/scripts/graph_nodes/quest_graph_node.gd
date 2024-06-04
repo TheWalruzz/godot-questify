@@ -18,6 +18,8 @@ func get_model() -> QuestNode:
 	var node := _get_model()
 	node.id = id
 	node.graph_editor_position = position_offset
+	if not size.is_zero_approx():
+		node.graph_editor_size = size
 	_set_model_properties(node)
 	return node
 	
@@ -25,6 +27,8 @@ func get_model() -> QuestNode:
 func load_model(node: QuestNode) -> void:
 	id = node.id
 	position_offset = node.graph_editor_position
+	if not node.graph_editor_size.is_zero_approx():
+		size = node.graph_editor_size
 	has_loaded_position = true
 	_get_model_properties(node)
 
@@ -39,3 +43,4 @@ func _set_model_properties(_node: QuestNode) -> void:
 	
 func _get_model_properties(_node: QuestNode) -> void:
 	pass
+	
