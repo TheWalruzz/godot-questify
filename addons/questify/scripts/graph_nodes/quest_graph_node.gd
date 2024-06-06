@@ -12,6 +12,13 @@ var has_loaded_position := false
 func _ready() -> void:
 	var title_label := get_titlebar_hbox().get_children()[0] as Label
 	title_label.add_theme_color_override("font_color", label_color)
+	
+	var delete_button: Button = Button.new()
+	var node_name_array: Array[StringName] = [name]
+	delete_button.icon = get_theme_icon("Close", "EditorIcons")
+	delete_button.pressed.connect(get_parent()._on_delete_nodes_request.bind(node_name_array))
+	delete_button.size_flags_horizontal = SIZE_SHRINK_END
+	get_titlebar_hbox().add_child(delete_button)
 
 
 func get_model() -> QuestNode:
