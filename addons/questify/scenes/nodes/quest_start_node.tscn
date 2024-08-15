@@ -69,7 +69,6 @@ script = ExtResource("1_vadyn")
 name_text_edit = NodePath("NameContainer/NameTextEdit")
 description_text_edit = NodePath("DescriptionContainer/DescriptionTextEdit")
 metadata_editor = NodePath("MetaDataEditor")
-label_color = Color(0, 0, 0, 1)
 
 [node name="OutputSlot" type="Label" parent="."]
 layout_mode = 2

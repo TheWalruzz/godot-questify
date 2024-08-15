@@ -26,7 +26,6 @@ func get_active() -> bool:
 func update() -> void:
 	var just_completed := false
 	if get_active():
-		print(description)
 		for condition in conditions:
 			condition.update()
 			if not condition.get_completed():

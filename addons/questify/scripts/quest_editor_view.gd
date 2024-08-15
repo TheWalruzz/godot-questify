@@ -59,7 +59,8 @@ func save_file(path: String) -> void:
 	
 func save_changes() -> void:
 	if current_file_path.is_empty():
-		save_file_dialog.popup()
+		if not quest_graph_editor.find_children("", "QuestGraphNode", false, false).is_empty():
+			save_file_dialog.popup()
 	else:
 		save_file(current_file_path)
 	
