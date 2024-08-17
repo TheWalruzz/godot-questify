@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="QuestResource" load_steps=26 format=3 uid="uid://bhcw8nnnbyln1"]
+[gd_resource type="Resource" script_class="QuestResource" load_steps=27 format=3 uid="uid://bhcw8nnnbyln1"]
 
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_start.gd" id="1_b3q5r"]
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_edge.gd" id="2_72pp1"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_node.gd" id="2_wutsj"]
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_objective.gd" id="3_aarra"]
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_end.gd" id="3_iaucn"]
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_resource.gd" id="4_4gs13"]
@@ -141,5 +142,5 @@ edge_type = 0
 
 [resource]
 script = ExtResource("4_4gs13")
-nodes = Array[Resource("res://addons/questify/scripts/model/quest_node.gd")]([SubResource("Resource_ednok"), SubResource("Resource_7qv6s"), SubResource("Resource_lnhol"), SubResource("Resource_4gwqr"), SubResource("Resource_imir8"), SubResource("Resource_ihpw2"), SubResource("Resource_vv2d1"), SubResource("Resource_bjr0k"), SubResource("Resource_iu3yf")])
+nodes = Array[ExtResource("2_wutsj")]([SubResource("Resource_ednok"), SubResource("Resource_7qv6s"), SubResource("Resource_lnhol"), SubResource("Resource_4gwqr"), SubResource("Resource_imir8"), SubResource("Resource_ihpw2"), SubResource("Resource_vv2d1"), SubResource("Resource_bjr0k"), SubResource("Resource_iu3yf")])
 edges = Array[ExtResource("2_72pp1")]([SubResource("Resource_mlwh3"), SubResource("Resource_f05dh"), SubResource("Resource_cvxy1"), SubResource("Resource_tnso5"), SubResource("Resource_godg3"), SubResource("Resource_xyl7s"), SubResource("Resource_qabpu"), SubResource("Resource_7oead"), SubResource("Resource_0p6kq")])

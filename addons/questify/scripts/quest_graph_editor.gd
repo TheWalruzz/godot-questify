@@ -29,7 +29,7 @@ func add_node(new_node: QuestGraphNode, position_offset: Vector2) -> void:
 	
 func clear() -> void:
 	clear_connections()
-	for node in get_children():
+	for node in get_child_nodes():
 		remove_child(node)
 		node.queue_free()
 		
@@ -50,6 +50,10 @@ func load(path: String) -> QuestResource:
 	
 func load_resource(resource: QuestResource) -> void:
 	_deserialize_resource(resource)
+	
+	
+func get_child_nodes() -> Array:
+	return find_children("", "QuestGraphNode", false, false)
 	
 	
 func _serialize_resource() -> QuestResource:
@@ -201,7 +205,7 @@ func _undo_delete_nodes(nodes: Array[QuestGraphNode], connections: Array[Diction
 
 func _paste_nodes(nodes: Array[QuestGraphNode]) -> void:
 	selected_nodes.clear()
-	for node: QuestGraphNode in get_children():
+	for node: QuestGraphNode in get_child_nodes():
 		node.selected = false
 	var relative_base_position: Vector2 = copied_nodes.reduce(
 		func(accum: Vector2, current_node: QuestGraphNode):
