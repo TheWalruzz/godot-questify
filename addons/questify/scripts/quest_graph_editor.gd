@@ -85,7 +85,7 @@ func _serialize_resource() -> QuestResource:
 	
 func _get_nodes(connections: Array[Dictionary], edges: Array[QuestEdge]) -> Array[QuestNode]:
 	var created_nodes := {}
-	for graph_node: QuestGraphNode in get_children():
+	for graph_node: QuestGraphNode in get_child_nodes():
 		created_nodes[graph_node.name] = graph_node.get_model()
 	for connection in connections:
 		var edge := QuestEdge.new()
