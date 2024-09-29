@@ -152,7 +152,7 @@ for quest_instance in quests:
 var quests: Array[QuestResource] = []
 for quest in serialized_quests:
 	# ...load proper quest resource
-	var instance := quest.instantiate()
+	var instance := quest.resource.instantiate()
 	instance.deserialize(quest.data) # quest.data could be whatever property you use to store the serialized data
 	quests.append(instance)
 Questify.set_quests(quests)
