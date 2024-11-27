@@ -34,7 +34,6 @@ func _ready() -> void:
 	)
 	
 	Questify.start_quest(quest_instance)
-	
 
 
 func _on_reset_button_pressed() -> void:

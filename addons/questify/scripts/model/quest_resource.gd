@@ -12,19 +12,13 @@ var name: String:
 var description: String:
 	get: return start_node.description
 	
-var start_node: QuestStart:
-	get:
-		_initialize()
-		return start_node
+var start_node: QuestStart
 		
 var started: bool:
 	get: return start_node.active
 		
 var completed: bool = false
 var is_instance := false
-
-
-var _was_initialized: bool = false
 
 
 func instantiate() -> QuestResource:
@@ -55,6 +49,7 @@ func instantiate() -> QuestResource:
 		
 	instance.is_instance = true
 	instance.set_meta("resource_path", resource_path)
+	instance._initialize()
 	return instance
 
 
@@ -149,12 +144,10 @@ func deserialize(data: Dictionary) -> void:
 	
 	
 func _initialize() -> void:
-	if not _was_initialized:
-		for node in nodes:
-			node.set_graph(self)
-			if node is QuestStart:
-				start_node = node as QuestStart
-		_was_initialized = true
+	for node in nodes:
+		node.set_graph(self)
+		if node is QuestStart:
+			start_node = node as QuestStart
 		
 		
 func _notify_active_objectives() -> void:

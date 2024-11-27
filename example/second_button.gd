@@ -10,7 +10,7 @@ func _ready() -> void:
 	pressed.connect(func():
 		data_manager.set_value("second_button_pressed", value)
 	)
-	data_manager.data_changed.connect(func(key: String, new_value: Variant):
+	data_manager.data_changed.connect(func(key: String, _value: Variant):
 		if key == "first_button_pressed":
 			visible = true
 		if key == "second_button_pressed":
