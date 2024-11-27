@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://example/example_scene.gd" id="1_by4wr"]
 [ext_resource type="Script" path="res://example/data_manager.gd" id="2_k5psm"]
-[ext_resource type="Resource" uid="uid://bhcw8nnnbyln1" path="res://example/first_quest.tres" id="2_kvrno"]
+[ext_resource type="Resource" uid="uid://rx8h13jwd3ul" path="res://example/first_quest.tres" id="2_kvrno"]
 [ext_resource type="Script" path="res://example/first_button.gd" id="4_omvj3"]
 [ext_resource type="Script" path="res://example/second_button.gd" id="5_prwcv"]
 
@@ -79,3 +79,10 @@ text = "Right Button"
 script = ExtResource("5_prwcv")
 data_manager = NodePath("../../../../DataManager")
 value = "right"
+
+[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Reset"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

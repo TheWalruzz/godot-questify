@@ -31,6 +31,28 @@ func instantiate() -> QuestResource:
 	if is_instance:
 		return self
 	var instance := duplicate(true) as QuestResource
+	
+	var duplicated_nodes: Array[QuestNode] = []
+	var duplicated_edges: Array[QuestEdge] = []
+	
+	var node_map := {}
+	# Arrays cannot be duplicated in resources, so duplicate them manually
+	for node in nodes:
+		var new_node := node.duplicate(true)
+		node_map[node] = new_node
+		duplicated_nodes.append(new_node)
+	for edge in edges:
+		var new_edge: QuestEdge = edge.duplicate(true)
+		# assign new references for edges
+		if edge.from != null:
+			new_edge.from = node_map[edge.from]
+		if edge.to != null:
+			new_edge.to = node_map[edge.to]
+		duplicated_edges.append(new_edge)	
+		
+	instance.nodes = duplicated_nodes
+	instance.edges = duplicated_edges
+		
 	instance.is_instance = true
 	instance.set_meta("resource_path", resource_path)
 	return instance

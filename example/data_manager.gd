@@ -2,6 +2,7 @@ class_name DataManager extends Node
 
 
 signal data_changed(key: String, value: Variant)
+signal reset_requested
 
 
 var data := {}
@@ -25,3 +26,8 @@ func get_value(key: String) -> Variant:
 	if data.has(key):
 		return data[key]
 	return null
+	
+	
+func clear() -> void:
+	data.clear()
+	reset_requested.emit()

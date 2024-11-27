@@ -35,3 +35,11 @@ func _ready() -> void:
 	
 	Questify.start_quest(quest_instance)
 	
+
+
+func _on_reset_button_pressed() -> void:
+	objectives.clear()
+	data_manager.clear()
+	Questify.clear()
+	var quest_instance := quest.instantiate()
+	Questify.start_quest(quest_instance)
