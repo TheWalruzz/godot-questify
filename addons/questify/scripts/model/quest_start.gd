@@ -17,14 +17,11 @@ func get_completed() -> bool:
 
 
 func serialize() -> Dictionary:
-	return {
-		id = id,
-		completed = get_completed(),
-		active = active
-	}
+	var data = super()
+	data.active = active
+	return data
 	
 	
 func deserialize(data: Dictionary) -> void:
-	id = data.id
-	completed = data.completed
+	super(data)
 	active = data.active
