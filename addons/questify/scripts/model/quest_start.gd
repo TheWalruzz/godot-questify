@@ -14,3 +14,14 @@ func get_active() -> bool:
 	
 func get_completed() -> bool:
 	return active
+
+
+func serialize() -> Dictionary:
+	var data = super()
+	data.active = active
+	return data
+	
+	
+func deserialize(data: Dictionary) -> void:
+	super(data)
+	active = data.active
