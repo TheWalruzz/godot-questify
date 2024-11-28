@@ -17,7 +17,7 @@ func get_completed() -> bool:
 
 
 func serialize() -> Dictionary:
-	var data = super()
+	var data := super()
 	data.active = active
 	return data
 	
