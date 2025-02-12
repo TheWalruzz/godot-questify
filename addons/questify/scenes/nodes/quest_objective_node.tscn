@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dp18smike5vyv"]
 
-[ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_objective_node.gd" id="1_0u0oi"]
-[ext_resource type="Script" path="res://addons/questify/scripts/components/metadata_editor.gd" id="2_nklti"]
+[ext_resource type="Script" uid="uid://b0bv1ueuny10y" path="res://addons/questify/scripts/graph_nodes/quest_objective_node.gd" id="1_0u0oi"]
+[ext_resource type="Script" uid="uid://d3y7kchbj45jy" path="res://addons/questify/scripts/components/metadata_editor.gd" id="2_nklti"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ihrq"]
 content_margin_left = 4.0

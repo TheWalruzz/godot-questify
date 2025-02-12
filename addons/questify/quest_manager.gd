@@ -16,13 +16,13 @@ func _ready() -> void:
 	if QuestifySettings.polling_enabled:
 		_add_timer()
 		_quest_update_timer.timeout.connect(update_quests)
-	
-	
+
+
 func start_quest(quest_resource: QuestResource) -> void:
 	_quests.append(quest_resource)
 	quest_resource.start()
 
-	
+
 func update_quests():
 	for quest in _quests:
 		quest.update()
@@ -30,8 +30,8 @@ func update_quests():
 
 func clear() -> void:
 	_quests.clear()
-	
-	
+
+
 func get_quests() -> Array[QuestResource]:
 	return _quests
 
@@ -52,8 +52,8 @@ func get_completed_quests() -> Array[QuestResource]:
 			return quest.completed
 	))
 	return result
-	
-	
+
+
 func set_quests(quests: Array[QuestResource]) -> void:
 	clear()
 	_quests.assign(quests)
@@ -76,13 +76,13 @@ func deserialize(data: Array) -> void:
 		var instance := quest.instantiate()
 		instance.deserialize(serialized_quest.data)
 		_quests.append(instance)
-	
-	
+
+
 func toggle_update_polling(value: bool) -> void:
 	if QuestifySettings.polling_enabled:
 		_quest_update_timer.paused = not value
-	
-	
+
+
 func _add_timer() -> void:
 	_quest_update_timer = Timer.new()
 	_quest_update_timer.autostart = true

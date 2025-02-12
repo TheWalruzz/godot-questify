@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhbl3kyiea18r"]
 
-[ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_condition_node.gd" id="1_a8dc6"]
+[ext_resource type="Script" uid="uid://bclvqawby8ylj" path="res://addons/questify/scripts/graph_nodes/quest_condition_node.gd" id="1_a8dc6"]
 [ext_resource type="PackedScene" uid="uid://cdmvb6rdyjmhy" path="res://addons/questify/scenes/metadata_input.tscn" id="2_l1xol"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjk50"]

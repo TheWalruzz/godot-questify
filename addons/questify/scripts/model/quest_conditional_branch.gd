@@ -8,8 +8,8 @@ var conditions: Array[QuestNode]:
 
 func get_active() -> bool:
 	return all_previous_nodes_completed()
-	
-	
+
+
 func update() -> void:
 	if get_active() and not get_completed():
 		for condition in conditions:

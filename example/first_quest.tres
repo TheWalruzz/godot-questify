@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="QuestResource" load_steps=27 format=3 uid="uid://rx8h13jwd3ul"]
 
-[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_start.gd" id="1_b3q5r"]
-[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_edge.gd" id="2_72pp1"]
-[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_node.gd" id="2_wutsj"]
-[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_objective.gd" id="3_aarra"]
-[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_end.gd" id="3_iaucn"]
-[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_resource.gd" id="4_4gs13"]
-[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_any_previous.gd" id="5_8vmba"]
-[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_condition.gd" id="5_xh1xg"]
+[ext_resource type="Script" uid="uid://dtbofow3tdngk" path="res://addons/questify/scripts/model/quest_start.gd" id="1_b3q5r"]
+[ext_resource type="Script" uid="uid://d4gmb2nftapl5" path="res://addons/questify/scripts/model/quest_edge.gd" id="2_72pp1"]
+[ext_resource type="Script" uid="uid://b37aev4imc074" path="res://addons/questify/scripts/model/quest_node.gd" id="2_wutsj"]
+[ext_resource type="Script" uid="uid://c23wdreelkkg4" path="res://addons/questify/scripts/model/quest_objective.gd" id="3_aarra"]
+[ext_resource type="Script" uid="uid://650crvoj707i" path="res://addons/questify/scripts/model/quest_end.gd" id="3_iaucn"]
+[ext_resource type="Script" uid="uid://bhqxygnm6kw4n" path="res://addons/questify/scripts/model/quest_resource.gd" id="4_4gs13"]
+[ext_resource type="Script" uid="uid://2hx4gocf36hm" path="res://addons/questify/scripts/model/quest_any_previous.gd" id="5_8vmba"]
+[ext_resource type="Script" uid="uid://cyotfkardp6i" path="res://addons/questify/scripts/model/quest_condition.gd" id="5_xh1xg"]
 
 [sub_resource type="Resource" id="Resource_cmofa"]
 script = ExtResource("1_b3q5r")

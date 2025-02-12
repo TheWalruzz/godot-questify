@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://clrd8l50ltvur"]
 
-[ext_resource type="Script" path="res://addons/questify/scripts/graph_nodes/quest_end_node.gd" id="1_k6nao"]
+[ext_resource type="Script" uid="uid://o4ebqc8dojmb" path="res://addons/questify/scripts/graph_nodes/quest_end_node.gd" id="1_k6nao"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v07vs"]
 content_margin_left = 4.0

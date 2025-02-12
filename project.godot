@@ -14,7 +14,7 @@ config/name="Questify"
 config/description="A graph-based quest editor and manager for Godot 4."
 config/tags=PackedStringArray("library")
 run/main_scene="res://example/example_scene.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.4")
 config/icon="res://logo.png"
 
 [autoload]
