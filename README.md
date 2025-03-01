@@ -128,6 +128,22 @@ Questify.toggle_update_polling(false) # or `true` if enabling it back.
 
 This will do nothing if `Update Polling` setting is off.
 
+### Translations
+
+This repository includes a separate plugin, `QuestResourceTranslationParser`, that will extract translatable strings from quest resources into POT files.
+Simply download it to your `addons` directory, enable it in the Project Settings and reload the project.
+
+**NOTE: this plugin is compatible with Godot 4.4+ due to API differences in EditorTranslationParserPlugin, but it's pretty easy to adapt to older versions if you wish so.**
+
+Please note that due to possible conflicts with other EditorTranslationParserPlugins that handle .tres extension,
+you might need to parse quest resource manually in other EditorTranslationParserPlugin.
+This is because Godot uses the first translation parser that matches the handled extension and ignore the others.
+
+Read more here: https://docs.godotengine.org/en/stable/classes/class_editortranslationparserplugin.html
+
+Also, Questify enables automatic addition of recently saved quests to the POT generation list in `Project Settings -> Localization -> POT Generation`.
+Simply enable `Add quests to POT generation` in Questify settings to make it work.
+
 ### Serialization and deserialization
 For most cases, Questify can holistically serialize and deserialize state of current quests using methods provided to the autoload:
 
@@ -195,7 +211,7 @@ The main building block of a quest, the objective node denotes any steps in ques
 
 By setting `optional` to true, any next node will treat this objective as completed, regardless of actual `completed` state.
 
-Metadata make use of Godot's meta functionality (see: https://docs.godotengine.org/en/stable/classes/class_object.html#class-object-method-get-meta for more details). This allows objective nodes to keep some dynamic data that can be accessed by your game at any time. This can be useful for storing things like map markers etc. 
+Metadata make use of Godot's meta functionality (see: https://docs.godotengine.org/en/stable/classes/class_object.html#class-object-method-get-meta for more details). This allows objective nodes to keep some dynamic data that can be accessed by your game at any time. This can be useful for storing things like map markers etc.
 
 If you create a meta value called `marker`, you can later retrieve the data using `get_meta`:
 
@@ -205,10 +221,10 @@ objective.get_meta("marker")
 
 ### Condition Nodes (Condition Node, Any Condition Node, Not Condition Node)
 
-In order for objectives to work, one or more conditions need to be attached to the objective node. Condition nodes use a special type of cdonnection, so you don't have to worry about connecting condition to where you're not supposed to. 
+In order for objectives to work, one or more conditions need to be attached to the objective node. Condition nodes use a special type of cdonnection, so you don't have to worry about connecting condition to where you're not supposed to.
 
-By default, ALL the attached conditions need to pass for objective to be completed. You can modify this behavior by attaching `Any Condition` node and `Not Condition` node which do exactly what they say on the tin: 
-* `Any Condition` will make the condition pass when at least one of the attached conditions is true. 
+By default, ALL the attached conditions need to pass for objective to be completed. You can modify this behavior by attaching `Any Condition` node and `Not Condition` node which do exactly what they say on the tin:
+* `Any Condition` will make the condition pass when at least one of the attached conditions is true.
 * `Not Condition` will negate the output of connected conditions, including `Any Condition` node.
 
 ### Branching Nodes (Any Previous Node, Exclusive Branch Connector Node)

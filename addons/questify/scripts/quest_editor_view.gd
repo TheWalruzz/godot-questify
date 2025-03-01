@@ -34,45 +34,54 @@ func _ready() -> void:
 	open_button.icon = get_theme_icon("Load", "EditorIcons")
 	save_button.icon = get_theme_icon("Save", "EditorIcons")
 	add_node_button.icon = get_theme_icon("Add", "EditorIcons")
-	
+
 	add_node_popup_menu.clear()
 	for item in graph_nodes:
 		add_node_popup_menu.add_item(item.label)
-	
+
 	version_label.text = "v%s" % Engine.get_meta("QuestifyPlugin").get_version()
 
 
 func apply_changes() -> void:
 	if quest_graph_editor.get_child_count() > 0:
 		save_changes()
-		
-		
+
+
 func save_file(path: String) -> void:
 	var error := quest_graph_editor.save(path)
 	if error == OK:
 		current_file_path = path
 		EditorInterface.get_resource_filesystem().scan()
+		if QuestifySettings.add_quests_to_pot_generation:
+			add_path_to_pot_generation(path)
 		return
 	# TODO: better error handling
 	printerr(error)
-	
-	
+
+
 func save_changes() -> void:
 	if current_file_path.is_empty():
 		if not quest_graph_editor.get_child_nodes().is_empty():
 			save_file_dialog.popup()
 	else:
 		save_file(current_file_path)
-	
-	
+
+
 func load_file(path: String) -> void:
 	quest_graph_editor.load(path)
 	current_file_path = path
-	
-	
+
+
 func load_resource(resource: QuestResource) -> void:
 	load_file(resource.resource_path)
-	
+
+
+func add_path_to_pot_generation(path: String) -> void:
+	var translations: PackedStringArray = ProjectSettings.get_setting("internationalization/locale/translations_pot_files")
+	if not path in translations:
+		translations.append(path)
+		ProjectSettings.save()
+
 
 func _on_add_node_index_pressed(index: int) -> void:
 	quest_graph_editor.add_node(graph_nodes[index].scene.instantiate(), quest_graph_editor.get_local_mouse_position())
@@ -80,12 +89,12 @@ func _on_add_node_index_pressed(index: int) -> void:
 
 func _on_save_button_pressed() -> void:
 	save_changes()
-	
+
 
 func _on_save_file_dialog_file_selected(path: String) -> void:
 	save_file(path)
-		
-		
+
+
 func _on_load_file_dialog_file_selected(path: String) -> void:
 	load_file(path)
 
