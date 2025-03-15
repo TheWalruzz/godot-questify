@@ -1,4 +1,5 @@
 @tool
+@icon("res://addons/questify/assets/icon.svg")
 class_name QuestResource extends Resource
 
 
