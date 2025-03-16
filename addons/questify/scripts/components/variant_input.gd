@@ -59,4 +59,8 @@ func _on_type_selected(index: int) -> void:
 	
 	
 func _on_value_changed(value: Variant) -> void:
+	# special case for int, since SpinBox always handles floats
+	if type_select.get_selected_id() == 4:
+		value_changed.emit(int(value))
+		return
 	value_changed.emit(value)
