@@ -204,6 +204,7 @@ Questify.set_quests(quests)
 ```
 
 And that's it!
+
 *Note : In C# to get resource path can be done by this function:
 ```C#
 questify.GetResourcePath(Resource Quest) ;
