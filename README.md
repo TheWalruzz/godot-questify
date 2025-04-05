@@ -36,6 +36,22 @@ func _ready() -> void:
   var instance := quest.instantiate()
   Questify.start_quest(instance)
 ```
+*Note : In C# you must create new class of "Questify" and Initialize it :
+```C#
+// You can Initialize like this example :
+ 
+  Questify questify;
+  [Export] Resource Quest;
+ public override void _Ready()
+ {
+ 	questify = new Questify(this);
+// To instantiate quest can be done by this function : questify.Instantiate(Resource Quest)
+ 	var QuestInstantiated = questify.Instantiate(Quest);
+// Then you can use it easily :
+    	 questify.StartQuest(QuestInstantiated);
+ }
+   // That's It !
+```
 
 ### Observing quest states
 
@@ -55,6 +71,15 @@ signal quest_completed(quest: QuestResource)
 `quest_objective_completed` is emitted when objective is completed and becomes inactive.
 
 `quest_completed` is emitted when quest is finished, i.e. end node has completed.
+
+*Note : In C# These Functions are connection ring between your methods and those signals .
+```C#
+questify.ConnectQuestStarted(Action<Resource> method);
+questify.ConnectConditionQueryRequested(Action<string,string,Variant, Resource> method);
+questify.ConnectQuestObjectiveAdded(Action<Resource, Resource> method);
+questify.ConnectQuestObjectiveCompleted(Action<Resource, Resource> method);
+questify.ConnectQuestCompleted(Action<Resource> method);
+```
 
 ### Handling condition queries
 
@@ -76,6 +101,10 @@ Questify.condition_query_requested.connect(
 	  if get_value(key) == value:
 		requester.set_completed(true)
 )
+```
+*Note : In C# to set Condition Complete or not can be done by this function :
+```C#
+questify.SetConditionCompleted(Resource QuestCondition , bool Complete) .
 ```
 
 Of course, you might need to use more operators than equality in queries, but this can be easily done by handling different subtypes of query type string, making for a quite elaborate and powerful system. For example, it could look like this in your DataManager or equivalent class:
@@ -175,6 +204,10 @@ Questify.set_quests(quests)
 ```
 
 And that's it!
+*Note : In C# to get resource path can be done by this function:
+```C#
+questify.GetResourcePath(Resource Quest) ;
+```
 
 ### Utilities
 
