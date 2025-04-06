@@ -56,14 +56,7 @@ signal quest_completed(quest: QuestResource)
 
 `quest_completed` is emitted when quest is finished, i.e. end node has completed.
 
-*Note : In C# These Functions are connection ring between your methods and those signals .
-```C#
-Questify.ConnectQuestStarted(Action<Resource> method);
-Questify.ConnectConditionQueryRequested(Action<string,string,Variant, Resource> method);
-Questify.ConnectQuestObjectiveAdded(Action<Resource, Resource> method);
-Questify.ConnectQuestObjectiveCompleted(Action<Resource, Resource> method);
-Questify.ConnectQuestCompleted(Action<Resource> method);
-```
+C# wrapper uses a special way of connecting to those signals. See [here](#c-support).
 
 ### Handling condition queries
 
@@ -86,10 +79,8 @@ Questify.condition_query_requested.connect(
 		requester.set_completed(true)
 )
 ```
-*Note : In C# to set Condition Complete or not can be done by this function :
-```C#
-Questify.SetConditionCompleted(Resource QuestCondition , bool Complete) .
-```
+
+C# wrapper uses a special way of setting the completed state. See [here](#c-support).
 
 Of course, you might need to use more operators than equality in queries, but this can be easily done by handling different subtypes of query type string, making for a quite elaborate and powerful system. For example, it could look like this in your DataManager or equivalent class:
 
@@ -189,10 +180,7 @@ Questify.set_quests(quests)
 
 And that's it!
 
-*Note : In C# to get resource path can be done by this function:
-```C#
-Questify.GetResourcePath(Resource Quest) ;
-```
+C# wrapper uses a special way of getting the resource path. See [here](#c-support).
 
 ### Utilities
 
@@ -258,6 +246,39 @@ When connecting objectives in parallel, each branch will have to be fully comple
 In case you want some quest branches to be visible only if certain conditions are met, you can use Conditional Branch Node. Simply attach inputs and outputs and proper conditions and voila! - The objectives attached to the output will be only available when conditions are met.
 
 However, please be aware that in this case use of Any Previous or Exclusive Branch Node might be necessary for quest to flow properly.
+
+## C# support
+
+This plugin contains a simple wrapper for the main Questify singleton. There are a few caveats to using it:
+
+Condition's completed state can be set using:
+
+```C#
+Questify.SetConditionCompleted(Resource questCondition, bool complete);
+```
+
+QuestResource path can be retrieved using:
+
+```C#
+Questify.GetResourcePath(Resource quest);
+```
+
+To connect to any of the signals handled by Questify, use those convenience methods:
+
+```C#
+Questify.ConnectQuestStarted(Action<Resource> action);
+Questify.ConnectConditionQueryRequested(Action<string,string, Variant, Resource> action);
+Questify.ConnectQuestObjectiveAdded(Action<Resource, Resource> action);
+Questify.ConnectQuestObjectiveCompleted(Action<Resource, Resource> action);
+Questify.ConnectQuestCompleted(Action<Resource> action);
+```
+
+Other methods are wrapped pretty much 1 to 1 with their GDScript counterparts, but using PascalCase instead of snake_case for their names, for example:
+
+```C#
+Questify.StartQuest(questResource);
+Questify.SetQuests(questArray);
+```
 
 # License
 Distributed under the [MIT License](https://github.com/TheWalruzz/godot-questify/blob/main/LICENSE).

@@ -25,6 +25,10 @@ Questify="*res://addons/questify/quest_manager.gd"
 
 gdscript/warnings/exclude_addons=false
 
+[dotnet]
+
+project/assembly_name="Questify"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/quest_resource_translation_parser/plugin.cfg", "res://addons/questify/plugin.cfg")

@@ -16,14 +16,14 @@ func _ready() -> void:
 	type_select.set_item_icon(3, get_theme_icon("Vector3", "EditorIcons"))
 	type_select.set_item_icon(4, get_theme_icon("int", "EditorIcons"))
 	type_select.set_item_icon(5, get_theme_icon("float", "EditorIcons"))
-	
-	
+
+
 func select_type(index: int) -> void:
 	for child in inputs_container.get_children():
 		child.visible = false
 	inputs_container.get_child(index).visible = true
-	
-	
+
+
 func set_value(value: Variant) -> void:
 	var index: int
 	if value is bool:
@@ -56,8 +56,8 @@ func set_value(value: Variant) -> void:
 
 func _on_type_selected(index: int) -> void:
 	select_type(index)
-	
-	
+
+
 func _on_value_changed(value: Variant) -> void:
 	# special case for int, since SpinBox always handles floats
 	if type_select.get_selected_id() == 4:
