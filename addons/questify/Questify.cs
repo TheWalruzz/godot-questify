@@ -1,134 +1,129 @@
 using Godot;
 using System;
 
-public class Questify 
+public static class Questify 
 {
 
    #region Initialize
    private static readonly NodePath nodePath = new("/root/Questify");
-   private Node QuestifyNode;
-
-   /*
-     You can Initialize like this example :
- 
-    Questify questify;
-    [Export] Resource Quest;
-   public override void _Ready()
-   {
-
-   questify = new Questify(this);
-
-  // Then you can use it easily :
-
-   var QuestInstantiated = questify.Instantiate(Quest);
-       questify.StartQuest(QuestInstantiated);
-
-   }
-     // That's It !
-      */
-
-
-   public Questify(Node InitializeFrom)
-   {
-      QuestifyNode = InitializeFrom.GetTree().Root.GetNode(nodePath);
+   private static Node instance;
+   private static void instanceNode()
+   { 
+      if (instance == null)
+      {
+         instance = ((SceneTree)Engine.GetMainLoop()).Root.GetNode(nodePath);
+      }
    }
    #endregion
 
 
    #region Functions
 
-
-   public Resource Instantiate(Resource QuestResource)
+   public static Resource Instantiate(Resource questResource)
    {
-      SceneTree tree = new SceneTree();
-      return ((Resource)QuestResource.Call(FuncName.Instantiate));
+      instanceNode();
+      return ((Resource)questResource.Call(FuncName.Instantiate));
    }
 
-   public void StartQuest(Resource Quest)
+   public static void StartQuest(Resource quest)
    {
-      QuestifyNode.Call(FuncName.StartQuest, Quest );
+      instanceNode();
+      instance.Call(FuncName.StartQuest, quest );
    }
 
-   public void SetConditionCompleted(Resource QuestCondition , bool Complete)
+   public static void SetConditionCompleted(Resource questCondition , bool complete)
    {
-      QuestCondition.Call(FuncName.SetConditionCompleted, Complete );
+      instanceNode();
+      questCondition.Call(FuncName.SetConditionCompleted, complete );
    }
 
-   public void ToggleUpdatePolling(bool UpdatePolling)
+   public static void ToggleUpdatePolling(bool updatePolling)
    {
-      QuestifyNode.Call(FuncName.ToggleUpdatePolling, UpdatePolling);
+      instanceNode();
+      instance.Call(FuncName.ToggleUpdatePolling, updatePolling);
    }
 
-   public void UpdateQuests()
+   public static void UpdateQuests()
    {
-      QuestifyNode.Call(FuncName.UpdateQuests);
+      instanceNode();
+      instance.Call(FuncName.UpdateQuests);
    }
 
-   public Godot.Collections.Array<Resource> GetQuests()
+   public static Godot.Collections.Array<Resource> GetQuests()
    {
-     return ((Godot.Collections.Array<Resource>)QuestifyNode.Call(FuncName.GetQuests));
+      instanceNode();
+      return ((Godot.Collections.Array<Resource>)instance.Call(FuncName.GetQuests));
    }
 
-   public Godot.Collections.Array<Resource> GetActiveQuests()
+   public static Godot.Collections.Array<Resource> GetActiveQuests()
    {
-      return QuestifyNode.Call(FuncName.GetActiveQuests).As<Godot.Collections.Array<Resource>>();
+      instanceNode();
+      return instance.Call(FuncName.GetActiveQuests).As<Godot.Collections.Array<Resource>>();
    }
 
-   public Godot.Collections.Array<Resource> GetCompletedQuests()
+   public static Godot.Collections.Array<Resource> GetCompletedQuests()
    {
-      return QuestifyNode.Call(FuncName.GetCompletedQuests).As<Godot.Collections.Array<Resource>>();
+      instanceNode();
+      return instance.Call(FuncName.GetCompletedQuests).As<Godot.Collections.Array<Resource>>();
    }
 
-   public void SetQuests(Godot.Collections.Array<Resource> Quests)
+   public static void SetQuests(Godot.Collections.Array<Resource> quests)
    {
-      QuestifyNode.Call(FuncName.SetQuests,Quests);
+      instanceNode();
+      instance.Call(FuncName.SetQuests,quests);
    }
    
-   public Godot.Collections.Array Serialize()
+   public static Godot.Collections.Array Serialize()
    {
-     return QuestifyNode.Call(FuncName.Serialize).As<Godot.Collections.Array>();
+      instanceNode();
+      return instance.Call(FuncName.Serialize).As<Godot.Collections.Array>();
    }
 
-   public void Deserialize(Godot.Collections.Array Data)
+   public static void Deserialize(Godot.Collections.Array data)
    {
-      QuestifyNode.Call(FuncName.Deserialize,Data);
+      instanceNode();
+      instance.Call(FuncName.Deserialize,data);
    }
 
-   public string GetResourcePath(Resource Quest)
+   public static string GetResourcePath(Resource quest)
    {
-      return ((Resource)Quest).Call(FuncName.GetResourcePath).As<string>();
+      instanceNode();
+      return ((Resource)quest).Call(FuncName.GetResourcePath).As<string>();
    }
 
-   public void Clear()
+   public static void Clear()
    {
-      QuestifyNode.Call(FuncName.Clear);
+      instanceNode();
+      instance.Call(FuncName.Clear);
    }
 
    #endregion
 
 
 
-   #region Signals Handler
-   public void ConnectQuestStarted(Action<Resource> method)
+   #region Signals Handlers
+   public static void ConnectQuestStarted(Action<Resource> method)
    {
-      QuestifyNode.Connect(SignalName.QuestStarted, Callable.From(method));
+      instanceNode();
+      instance.Connect(SignalName.QuestStarted, Callable.From(method));
    }
    /// <summary>
    /// Connect method to "ConditionQueryRequested" , And parameters method is :
    /// method ( string QueryType , string Key , Variant Value , Resource Requester )
    /// </summary>
-   public void ConnectConditionQueryRequested(Action<string,string,Variant, Resource> method)
+   public static void ConnectConditionQueryRequested(Action<string,string,Variant, Resource> method)
    {
-    
-      QuestifyNode.Connect(SignalName.ConditionQueryRequested, Callable.From(method));
+      instanceNode();
+      instance.Connect(SignalName.ConditionQueryRequested, Callable.From(method));
    }
    /// <summary>
    /// Connect method to "QuestObjectiveAdded" And parameters method is :
    /// method ( Resource Quest , Resource Objective )
    /// </summary>
-   public void ConnectQuestObjectiveAdded(Action<Resource, Resource> method)
+   public static void ConnectQuestObjectiveAdded(Action<Resource, Resource> method)
    {
-      QuestifyNode.Connect(SignalName.QuestObjectiveAdded, Callable.From(method));
+      instanceNode();
+      instance.Connect(SignalName.QuestObjectiveAdded, Callable.From(method));
    }
 
    /// <summary>
@@ -136,9 +131,10 @@ public class Questify
    /// method ( Resource Quest , Resource Objective )
    /// </summary>
    /// <param name="method"></param>
-   public void ConnectQuestObjectiveCompleted(Action<Resource, Resource> method)
+   public static void ConnectQuestObjectiveCompleted(Action<Resource, Resource> method)
    {
-      QuestifyNode.Connect(SignalName.QuestObjectiveCompleted, Callable.From(method));
+      instanceNode();
+      instance.Connect(SignalName.QuestObjectiveCompleted, Callable.From(method));
    }
 
    /// <summary>
@@ -146,9 +142,10 @@ public class Questify
    /// method ( Resource Quest )
    /// </summary>
    /// <param name="method"></param>
-   public void ConnectQuestCompleted(Action<Resource> method)
+   public static void ConnectQuestCompleted(Action<Resource> method)
    {
-      QuestifyNode.Connect(SignalName.QuestCompleted, Callable.From(method));
+      instanceNode();
+      instance.Connect(SignalName.QuestCompleted, Callable.From(method));
    }
 
    #endregion
