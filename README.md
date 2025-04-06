@@ -56,6 +56,15 @@ signal quest_completed(quest: QuestResource)
 
 `quest_completed` is emitted when quest is finished, i.e. end node has completed.
 
+*Note : In C# These Functions are connection ring between your methods and those signals .
+```C#
+Questify.ConnectQuestStarted(Action<Resource> method);
+Questify.ConnectConditionQueryRequested(Action<string,string,Variant, Resource> method);
+Questify.ConnectQuestObjectiveAdded(Action<Resource, Resource> method);
+Questify.ConnectQuestObjectiveCompleted(Action<Resource, Resource> method);
+Questify.ConnectQuestCompleted(Action<Resource> method);
+```
+
 ### Handling condition queries
 
 Questify uses an architecture-agnostic query system to handle quest conditions. This is due to some of the limitations of Godot plugins, but has some advantages. This way Questify can be setup without much work on your part.
@@ -76,6 +85,10 @@ Questify.condition_query_requested.connect(
 	  if get_value(key) == value:
 		requester.set_completed(true)
 )
+```
+*Note : In C# to set Condition Complete or not can be done by this function :
+```C#
+Questify.SetConditionCompleted(Resource QuestCondition , bool Complete) .
 ```
 
 Of course, you might need to use more operators than equality in queries, but this can be easily done by handling different subtypes of query type string, making for a quite elaborate and powerful system. For example, it could look like this in your DataManager or equivalent class:
@@ -175,6 +188,11 @@ Questify.set_quests(quests)
 ```
 
 And that's it!
+
+*Note : In C# to get resource path can be done by this function:
+```C#
+Questify.GetResourcePath(Resource Quest) ;
+```
 
 ### Utilities
 
