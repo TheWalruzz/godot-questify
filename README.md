@@ -251,6 +251,11 @@ However, please be aware that in this case use of Any Previous or Exclusive Bran
 
 This plugin contains a simple wrapper for the main Questify singleton. There are a few caveats to using it:
 
+QuestResources can be instantiated using:
+```C#
+Questify.Instantiate(Resource questResource);
+```
+
 Condition's completed state can be set using:
 
 ```C#
