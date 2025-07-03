@@ -13,15 +13,15 @@ var optional: bool
 
 func _get_model() -> QuestNode:
 	return QuestObjective.new()
-	
-	
+
+
 func _set_model_properties(node: QuestNode) -> void:
 	node.description = quest_description
 	node.optional = optional
 	for key in get_meta_list():
 		node.set_meta(key, get_meta(key))
-	
-	
+
+
 func _get_model_properties(node: QuestNode) -> void:
 	quest_description = node.description
 	description_text_edit.text = node.description

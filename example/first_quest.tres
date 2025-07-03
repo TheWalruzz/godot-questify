@@ -16,15 +16,15 @@ description = "This is your first quest. Good luck!"
 id = "tvxd77rjNf"
 optional = false
 graph_editor_position = Vector2(-580, -40)
-graph_editor_size = Vector2(448.59, 516)
+graph_editor_size = Vector2(448.59, 520)
 
 [sub_resource type="Resource" id="Resource_yajv1"]
 script = ExtResource("3_aarra")
 description = "Press the button!"
 id = "9QWGIohUh9"
 optional = false
-graph_editor_position = Vector2(320, 0)
-graph_editor_size = Vector2(442.5, 541)
+graph_editor_position = Vector2(260, 0)
+graph_editor_size = Vector2(442.5, 549)
 
 [sub_resource type="Resource" id="Resource_55sxw"]
 script = ExtResource("2_72pp1")
@@ -54,7 +54,7 @@ description = "Press the right button."
 id = "5xlDc6m2uI"
 optional = false
 graph_editor_position = Vector2(1120, 360)
-graph_editor_size = Vector2(396.3, 541)
+graph_editor_size = Vector2(396.3, 549)
 
 [sub_resource type="Resource" id="Resource_3ip8i"]
 script = ExtResource("2_72pp1")
@@ -96,51 +96,51 @@ script = ExtResource("3_aarra")
 description = "Press the left button."
 id = "Z7s9xeSDCQ"
 optional = false
-graph_editor_position = Vector2(1120, -420)
-graph_editor_size = Vector2(389.7, 541)
+graph_editor_position = Vector2(1140, -380)
+graph_editor_size = Vector2(389.7, 549)
 
 [sub_resource type="Resource" id="Resource_40wp7"]
-script = ExtResource("2_72pp1")
-from = SubResource("Resource_yajv1")
-to = SubResource("Resource_pgkyk")
-edge_type = 0
-
-[sub_resource type="Resource" id="Resource_prw56"]
 script = ExtResource("2_72pp1")
 from = SubResource("Resource_pgkyk")
 to = SubResource("Resource_c6t0o")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_bbd3t"]
+[sub_resource type="Resource" id="Resource_prw56"]
 script = ExtResource("5_xh1xg")
 type = "variable"
 key = "second_button_pressed"
 id = "J7StYXvgGA"
 optional = false
-graph_editor_position = Vector2(440, -420)
+graph_editor_position = Vector2(620, -680)
 graph_editor_size = Vector2(301.4, 341.6)
 metadata/value = "left"
 
-[sub_resource type="Resource" id="Resource_iw2n3"]
+[sub_resource type="Resource" id="Resource_bbd3t"]
 script = ExtResource("2_72pp1")
-from = SubResource("Resource_bbd3t")
+from = SubResource("Resource_prw56")
 to = SubResource("Resource_pgkyk")
 edge_type = 1
 
-[sub_resource type="Resource" id="Resource_su0ff"]
+[sub_resource type="Resource" id="Resource_iw2n3"]
 script = ExtResource("3_iaucn")
 id = "xwO4thUnpd"
 optional = false
 graph_editor_position = Vector2(2120, 200)
 graph_editor_size = Vector2(77, 69)
 
-[sub_resource type="Resource" id="Resource_plth8"]
+[sub_resource type="Resource" id="Resource_su0ff"]
 script = ExtResource("2_72pp1")
 from = SubResource("Resource_c6t0o")
-to = SubResource("Resource_su0ff")
+to = SubResource("Resource_iw2n3")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_plth8"]
+script = ExtResource("2_72pp1")
+from = SubResource("Resource_yajv1")
+to = SubResource("Resource_pgkyk")
 edge_type = 0
 
 [resource]
 script = ExtResource("4_4gs13")
-nodes = Array[ExtResource("2_wutsj")]([SubResource("Resource_7rt1o"), SubResource("Resource_c6t0o"), SubResource("Resource_pgkyk"), SubResource("Resource_su0ff"), SubResource("Resource_bbd3t"), SubResource("Resource_joeod"), SubResource("Resource_yajv1"), SubResource("Resource_yljfn"), SubResource("Resource_dtim7")])
-edges = Array[ExtResource("2_72pp1")]([SubResource("Resource_55sxw"), SubResource("Resource_7a5ni"), SubResource("Resource_3ip8i"), SubResource("Resource_m752c"), SubResource("Resource_waf73"), SubResource("Resource_40wp7"), SubResource("Resource_prw56"), SubResource("Resource_iw2n3"), SubResource("Resource_plth8")])
+nodes = Array[ExtResource("2_wutsj")]([SubResource("Resource_7rt1o"), SubResource("Resource_c6t0o"), SubResource("Resource_iw2n3"), SubResource("Resource_joeod"), SubResource("Resource_yljfn"), SubResource("Resource_dtim7"), SubResource("Resource_yajv1"), SubResource("Resource_prw56"), SubResource("Resource_pgkyk")])
+edges = Array[ExtResource("2_72pp1")]([SubResource("Resource_55sxw"), SubResource("Resource_7a5ni"), SubResource("Resource_3ip8i"), SubResource("Resource_m752c"), SubResource("Resource_waf73"), SubResource("Resource_40wp7"), SubResource("Resource_bbd3t"), SubResource("Resource_su0ff"), SubResource("Resource_plth8")])

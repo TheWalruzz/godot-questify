@@ -61,7 +61,8 @@ func start() -> void:
 	if not completed and not started:
 		start_node.active = true
 		Questify.quest_started.emit(self)
-		_notify_active_objectives()
+		if not QuestifySettings.polling_enabled:
+			notify_active_objectives()
 
 
 func update() -> void:
@@ -114,14 +115,14 @@ func request_query(type: String, key: String, value: Variant, requester: QuestCo
 	Questify.condition_query_requested.emit(type, key, value, requester)
 
 
-func complete_objective(objective: QuestObjective) -> void:
-	Questify.quest_objective_completed.emit(self, objective)
-	_notify_active_objectives()
-
-
 func complete_quest() -> void:
 	completed = true
 	Questify.quest_completed.emit(self)
+
+
+func notify_active_objectives() -> void:
+	for objective in get_active_objectives():
+		objective.activate_objective()
 
 
 func serialize() -> Dictionary:
@@ -149,8 +150,3 @@ func _initialize() -> void:
 		node.set_graph(self)
 		if node is QuestStart:
 			start_node = node as QuestStart
-
-
-func _notify_active_objectives() -> void:
-	for objective in get_active_objectives():
-		Questify.quest_objective_added.emit(self, objective)

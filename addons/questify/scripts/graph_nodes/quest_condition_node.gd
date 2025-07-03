@@ -14,14 +14,14 @@ var value: Variant
 
 func _get_model() -> QuestNode:
 	return QuestCondition.new()
-	
-	
+
+
 func _set_model_properties(node: QuestNode) -> void:
 	node.type = type
 	node.key = key
 	node.set_meta("value", value)
-	
-	
+
+
 func _get_model_properties(node: QuestNode) -> void:
 	type = node.type
 	type_input.text = node.type

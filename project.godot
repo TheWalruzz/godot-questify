@@ -44,5 +44,5 @@ update_interval=0.5
 [questify]
 
 general/update_interval=0.5
-general/update_polling=true
 general/add_quests_to_pot_generation=true
+general/update_polling=true

@@ -20,14 +20,14 @@ func _ready() -> void:
 func set_value(key: String, value: Variant) -> void:
 	data[key] = value
 	data_changed.emit(key, value)
-	
-	
+
+
 func get_value(key: String) -> Variant:
 	if data.has(key):
 		return data[key]
 	return null
-	
-	
+
+
 func clear() -> void:
 	data.clear()
 	reset_requested.emit()
