@@ -54,10 +54,14 @@ func get_completed_quests() -> Array[QuestResource]:
 	return result
 
 
+## Add quest to the list without starting it.
+func add_quest(quest: QuestResource) -> void:
+	_quests.append(quest)
+
+
 func set_quests(quests: Array[QuestResource]) -> void:
 	clear()
-	for quest in quests:
-		_quests.append(quest)
+	_quests.assign(quests)
 
 
 func serialize() -> Array:
