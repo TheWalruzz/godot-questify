@@ -18,7 +18,7 @@ var value: Variant:
 
 func update() -> void:
 	if not get_completed():
-		Questify.condition_query_requested.emit(type, key, value, self)
+		Questify.condition_query_requested.emit(type, key, QuestifyParamParser.parse(value, _graph), self)
 
 
 func set_completed(new_value: bool) -> void:

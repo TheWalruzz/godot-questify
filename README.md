@@ -132,6 +132,29 @@ Questify.toggle_update_polling(false) # or `true` if enabling it back.
 
 This will do nothing if `Update Polling` setting is off.
 
+### Parametrized quests
+
+Questify includes a mechanism to start a quest with a Dictionary of params that will be injected into condition values when query is requested.
+
+```gdscript
+Questify.start(quest, { "param_name": "Rat" })
+```
+
+This is analogous in C#.
+
+To use it in Condition Node, select String type for value and put `{param_name}` in the text field.
+Multiple params can be used in one value if needed, as all param occurences will be replaced, but the resulting value will always be a formatted String.
+
+For the example above, when a condition query request is sent, it will replace `{param_name}` with `Rat`.
+If single param is provided, the type will be preserved, e.g. for `{ "param_name": 123 }`, the resulting query value will be an int.
+
+Since translations for quests could be handled in many different ways, descriptions are not automatically filled with quest param values.
+However, it can easily be done with a simple buil-in `format()` function:
+
+```gdscript
+quest_objective.description.format(quest.params)
+```
+
 ### Translations
 
 This repository includes a separate plugin, `QuestResourceTranslationParser`, that will extract translatable strings from quest resources into POT files.

@@ -20,6 +20,7 @@ var started: bool:
 
 var completed: bool = false
 var is_instance := false
+var params: Dictionary = {}
 
 
 func instantiate() -> QuestResource:
@@ -54,12 +55,13 @@ func instantiate() -> QuestResource:
 	return instance
 
 
-func start() -> void:
+func start(quest_params: Dictionary = {}) -> void:
 	if not is_instance:
 		printerr("Quest must be instantiated to be started. Use instantiate().")
 		return
 	if not completed and not started:
 		start_node.active = true
+		params = quest_params
 		Questify.quest_started.emit(self)
 		if not QuestifySettings.polling_enabled:
 			notify_active_objectives()
@@ -128,7 +130,8 @@ func notify_active_objectives() -> void:
 func serialize() -> Dictionary:
 	return {
 		completed = completed,
-		nodes = nodes.map(func(node: QuestNode): return node.serialize())
+		nodes = nodes.map(func(node: QuestNode): return node.serialize()),
+		params = params,
 	}
 
 
@@ -137,6 +140,7 @@ func deserialize(data: Dictionary) -> void:
 		printerr("Quest must be instantiated to be deserialized. Use instantiate().")
 		return
 	completed = data.completed
+	params = data.params if data.has("params") else {}
 	var node_map := {}
 	for node in nodes:
 		node_map[node.id] = node

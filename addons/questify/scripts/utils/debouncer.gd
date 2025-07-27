@@ -13,8 +13,8 @@ var _timer: SceneTreeTimer
 func _init(tree: SceneTree, time := DEFAULT_DEBOUNCE_TIME) -> void:
 	_tree = tree
 	_debounce_time = time
-	
-	
+
+
 func debounce(callable: Callable) -> void:
 	if _timer != null:
 		_disconnect_timer()

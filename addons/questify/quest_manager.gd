@@ -18,9 +18,9 @@ func _ready() -> void:
 		_quest_update_timer.timeout.connect(update_quests)
 
 
-func start_quest(quest_resource: QuestResource) -> void:
+func start_quest(quest_resource: QuestResource, params: Dictionary = {}) -> void:
 	add_quest(quest_resource)
-	quest_resource.start()
+	quest_resource.start(params)
 
 
 func update_quests():
