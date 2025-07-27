@@ -149,7 +149,7 @@ For the example above, when a condition query request is sent, it will replace `
 If single param is provided, the type will be preserved, e.g. for `{ "param_name": 123 }`, the resulting query value will be an int.
 
 Since translations for quests could be handled in many different ways, descriptions are not automatically filled with quest param values.
-However, it can easily be done with a simple buil-in `format()` function:
+However, it can easily be done with a simple built-in `format()` function:
 
 ```gdscript
 quest_objective.description.format(quest.params)
@@ -250,7 +250,7 @@ objective.get_meta("marker")
 
 ### Condition Nodes (Condition Node, Any Condition Node, Not Condition Node)
 
-In order for objectives to work, one or more conditions need to be attached to the objective node. Condition nodes use a special type of cdonnection, so you don't have to worry about connecting condition to where you're not supposed to.
+In order for objectives to work, one or more conditions need to be attached to the objective node. Condition nodes use a special type of connection, so you don't have to worry about connecting them to nodes you're not supposed to.
 
 By default, ALL the attached conditions need to pass for objective to be completed. You can modify this behavior by attaching `Any Condition` node and `Not Condition` node which do exactly what they say on the tin:
 * `Any Condition` will make the condition pass when at least one of the attached conditions is true.

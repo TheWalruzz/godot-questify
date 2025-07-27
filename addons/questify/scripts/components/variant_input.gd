@@ -12,10 +12,11 @@ signal value_changed(value: Variant)
 func _ready() -> void:
 	type_select.set_item_icon(0, get_theme_icon("bool", "EditorIcons"))
 	type_select.set_item_icon(1, get_theme_icon("String", "EditorIcons"))
-	type_select.set_item_icon(2, get_theme_icon("Vector2", "EditorIcons"))
-	type_select.set_item_icon(3, get_theme_icon("Vector3", "EditorIcons"))
-	type_select.set_item_icon(4, get_theme_icon("int", "EditorIcons"))
-	type_select.set_item_icon(5, get_theme_icon("float", "EditorIcons"))
+	type_select.set_item_icon(2, get_theme_icon("Object", "EditorIcons"))
+	type_select.set_item_icon(3, get_theme_icon("Vector2", "EditorIcons"))
+	type_select.set_item_icon(4, get_theme_icon("Vector3", "EditorIcons"))
+	type_select.set_item_icon(5, get_theme_icon("int", "EditorIcons"))
+	type_select.set_item_icon(6, get_theme_icon("float", "EditorIcons"))
 
 
 func select_type(index: int) -> void:
@@ -29,15 +30,18 @@ func set_value(value: Variant) -> void:
 	if value is bool:
 		index = 0
 	if value is String:
-		index = 1
+		if value.begins_with("res://"):
+			index = 2
+		else:
+			index = 1
 	if value is Vector2:
-		index = 2
-	if value is Vector3:
 		index = 3
-	if value is int:
+	if value is Vector3:
 		index = 4
-	if value is float:
+	if value is int:
 		index = 5
+	if value is float:
+		index = 6
 	type_select.select(index)
 	select_type(index)
 	var input = inputs_container.get_child(index)
@@ -46,11 +50,13 @@ func set_value(value: Variant) -> void:
 			input.button_pressed = value
 		1: #String
 			input.text = value
-		2: #Vector2
+		2: #Resource
 			input.set_value(value)
-		3: #Vector3
+		3: #Vector2
 			input.set_value(value)
-		4, 5: #int, float
+		4: #Vector3
+			input.set_value(value)
+		5, 6: #int, float
 			input.value = value
 
 

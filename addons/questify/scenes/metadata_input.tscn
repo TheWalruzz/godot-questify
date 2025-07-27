@@ -1,19 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdmvb6rdyjmhy"]
+[gd_scene load_steps=8 format=3 uid="uid://cdmvb6rdyjmhy"]
 
 [ext_resource type="Script" uid="uid://d26l7ngfsise6" path="res://addons/questify/scripts/components/variant_input.gd" id="1_hs4u8"]
 [ext_resource type="Script" uid="uid://bg3uw8ewoabat" path="res://addons/questify/scripts/components/vector2_input.gd" id="2_3tex4"]
+[ext_resource type="Script" uid="uid://c2ikgygvjryx7" path="res://addons/questify/scripts/components/resource_input.gd" id="2_281oq"]
+[ext_resource type="Script" uid="uid://hx2m0v16ik46" path="res://addons/questify/scripts/components/resource_path_input.gd" id="3_8vv8e"]
 [ext_resource type="Script" uid="uid://ct2do3perw132" path="res://addons/questify/scripts/components/vector3_input.gd" id="3_r86jk"]
 
 [sub_resource type="Image" id="Image_562ib"]
 data = {
-"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"data": PackedByteArray(255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 255, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 231, 255, 90, 90, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 90, 90, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 42, 255, 90, 90, 0, 255, 94, 94, 0, 255, 91, 91, 42, 255, 93, 93, 233, 255, 92, 92, 232, 255, 93, 93, 41, 255, 90, 90, 0, 255, 94, 94, 0, 255, 91, 91, 42, 255, 93, 93, 233, 255, 92, 92, 232, 255, 92, 92, 0, 255, 92, 92, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 45, 255, 93, 93, 44, 255, 91, 91, 0, 255, 91, 91, 42, 255, 91, 91, 42, 255, 93, 93, 0, 255, 91, 91, 45, 255, 93, 93, 44, 255, 91, 91, 0, 255, 91, 91, 42, 255, 91, 91, 42, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 45, 255, 92, 92, 235, 255, 92, 92, 234, 255, 89, 89, 43, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 45, 255, 92, 92, 235, 255, 92, 92, 234, 255, 89, 89, 43, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 91, 91, 59, 255, 92, 92, 61, 255, 92, 92, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 91, 91, 59, 255, 92, 92, 61, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0),
 "format": "RGBA8",
 "height": 16,
 "mipmaps": false,
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_egaxb"]
+[sub_resource type="ImageTexture" id="ImageTexture_281oq"]
 image = SubResource("Image_562ib")
 
 [node name="MetadataInput" type="HBoxContainer" node_paths=PackedStringArray("type_select", "inputs_container")]
@@ -23,34 +25,37 @@ type_select = NodePath("MetaTypeSelect")
 inputs_container = NodePath("InputsContainer")
 
 [node name="MetaTypeSelect" type="OptionButton" parent="."]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-item_count = 6
 selected = 0
+item_count = 7
 popup/item_0/text = "Boolean"
-popup/item_0/icon = SubResource("ImageTexture_egaxb")
+popup/item_0/icon = SubResource("ImageTexture_281oq")
 popup/item_0/id = 0
 popup/item_1/text = "String"
-popup/item_1/icon = SubResource("ImageTexture_egaxb")
+popup/item_1/icon = SubResource("ImageTexture_281oq")
 popup/item_1/id = 1
-popup/item_2/text = "Vector2"
-popup/item_2/icon = SubResource("ImageTexture_egaxb")
+popup/item_2/text = "Resource"
 popup/item_2/id = 2
-popup/item_3/text = "Vector3"
-popup/item_3/icon = SubResource("ImageTexture_egaxb")
+popup/item_3/text = "Vector2"
+popup/item_3/icon = SubResource("ImageTexture_281oq")
 popup/item_3/id = 3
-popup/item_4/text = "Integer"
-popup/item_4/icon = SubResource("ImageTexture_egaxb")
+popup/item_4/text = "Vector3"
+popup/item_4/icon = SubResource("ImageTexture_281oq")
 popup/item_4/id = 4
-popup/item_5/text = "Float"
-popup/item_5/icon = SubResource("ImageTexture_egaxb")
+popup/item_5/text = "Integer"
+popup/item_5/icon = SubResource("ImageTexture_281oq")
 popup/item_5/id = 5
+popup/item_6/text = "Float"
+popup/item_6/icon = SubResource("ImageTexture_281oq")
+popup/item_6/id = 6
 
 [node name="InputsContainer" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="BoolValue" type="CheckBox" parent="InputsContainer"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,6 +73,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+
+[node name="ResourceValue" type="HBoxContainer" parent="InputsContainer" node_paths=PackedStringArray("line_edit", "file_dialog", "open_button")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+script = ExtResource("2_281oq")
+line_edit = NodePath("ResourcePathValue")
+file_dialog = NodePath("FileDialog")
+open_button = NodePath("OpenButton")
+
+[node name="ResourcePathValue" type="LineEdit" parent="InputsContainer/ResourceValue"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_8vv8e")
+
+[node name="OpenButton" type="Button" parent="InputsContainer/ResourceValue"]
+layout_mode = 2
+icon_alignment = 1
+
+[node name="FileDialog" type="FileDialog" parent="InputsContainer/ResourceValue"]
+title = "Open a File"
+initial_position = 4
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.tres,*.res;Resource Files;text/plain,application/octet-stream")
+option_count = 1
 
 [node name="Vector2Value" type="HBoxContainer" parent="InputsContainer" node_paths=PackedStringArray("x_value", "y_value")]
 visible = false
@@ -167,6 +204,9 @@ allow_lesser = true
 [connection signal="item_selected" from="MetaTypeSelect" to="." method="_on_type_selected"]
 [connection signal="toggled" from="InputsContainer/BoolValue" to="." method="_on_value_changed"]
 [connection signal="text_changed" from="InputsContainer/StringValue" to="." method="_on_value_changed"]
+[connection signal="value_changed" from="InputsContainer/ResourceValue" to="." method="_on_value_changed"]
+[connection signal="pressed" from="InputsContainer/ResourceValue/OpenButton" to="InputsContainer/ResourceValue" method="_on_open_button_pressed"]
+[connection signal="file_selected" from="InputsContainer/ResourceValue/FileDialog" to="InputsContainer/ResourceValue" method="_on_file_dialog_file_selected"]
 [connection signal="value_changed" from="InputsContainer/Vector2Value" to="." method="_on_value_changed"]
 [connection signal="value_changed" from="InputsContainer/Vector3Value" to="." method="_on_value_changed"]
 [connection signal="value_changed" from="InputsContainer/IntegerValue" to="." method="_on_value_changed"]

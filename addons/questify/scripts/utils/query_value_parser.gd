@@ -1,4 +1,4 @@
-class_name QuestifyParamParser extends RefCounted
+class_name QuestifyQueryValueParser extends RefCounted
 
 
 static func parse(value: Variant, quest: QuestResource) -> Variant:
@@ -9,7 +9,10 @@ static func parse(value: Variant, quest: QuestResource) -> Variant:
 			var param: String = trimmed_value.substr(1, trimmed_value.length() - 2)
 			if quest.params.has(param):
 				return quest.params[param]
-		# just create a string with all found params replaced
+		# handle resource path
+		elif trimmed_value.begins_with("res://") and ResourceLoader.exists(trimmed_value):
+			return load(trimmed_value)
+		# just create a string with all params replaced
 		else:
 			return value.format(quest.params)
 	return value
