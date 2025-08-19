@@ -83,6 +83,14 @@ func get_active_objectives() -> Array[QuestObjective]:
 	return objectives
 
 
+func get_completed_objectives() -> Array[QuestObjective]:
+	var objectives: Array[QuestObjective] = []
+	for node in nodes:
+		if node is QuestObjective and node.get_completed():
+			objectives.append(node)
+	return objectives
+
+
 func get_next_nodes(node: QuestNode, edge_type: QuestEdge.EdgeType = QuestEdge.EdgeType.NORMAL) -> Array[QuestNode]:
 	var result: Array[QuestNode] = []
 	result.assign(edges.filter(
